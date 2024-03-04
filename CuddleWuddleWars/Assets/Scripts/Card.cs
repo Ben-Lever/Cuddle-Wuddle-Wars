@@ -15,18 +15,17 @@ public class Card : ScriptableObject
     public string cardName;
     public Sprite artwork;
     public UnitType unitType;
-    private int baseAttack;
-    private int baseHealth;
-    private float baseHitSpeed;
-    private int attackIV; // Additional stat points for attack
-    private int healthIV; // Additional stat points for health
-    private float hitSpeedIV; // Additional stat points for hit speed
+    public int baseAttack;
+    public int baseHealth;
+    public float baseHitSpeed;
+    public int attackIV; // Additional stat points for attack
+    public int healthIV; // Additional stat points for health
+    public float hitSpeedIV; // Additional stat points for hit speed
     public int level;
 
     // Constructor to initialize a card with its base stats and random IVs
-    public void InitializeCard(UnitType type)
+    public void InitialiseCard()
     {
-        unitType = type;
         AssignBaseStats();
         GenerateRandomIVs();
     }
