@@ -13,6 +13,12 @@ MonoBehaviour:
   m_Name: TeddyBearCard
   m_EditorClassIdentifier: 
   cardName: Teddy Bear
-  artwork: {fileID: 0}
+  artwork: {fileID: 21300000, guid: 63de7126f272f444da43b2359fe8b27a, type: 3}
   unitType: 0
-  level: 0
+  baseAttack: 5
+  baseHealth: 100
+  baseHitSpeed: 1.5
+  attackIV: 0
+  healthIV: 5
+  hitSpeedIV: 0.080248296
+  level: 2
