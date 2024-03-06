@@ -6,8 +6,12 @@ using TMPro;
 public class FluffCollector : MonoBehaviour
 {
     public TextMeshProUGUI fluffText;
-    private int fluffCount = 0;
+    public int fluffCount = 0;
 
+    public int GetFluffCount()
+    {
+        return fluffCount;
+    }
 
     // Update is called once per frame
     void Update()
@@ -24,14 +28,16 @@ public class FluffCollector : MonoBehaviour
         }
     }
 
-    private void CollectFluff(GameObject fluff)
+
+
+    public void CollectFluff(GameObject fluff)
     {
         fluffCount++;
         UpdateFluffText();
         Destroy(fluff); 
     }
 
-    private void UpdateFluffText()
+    public void UpdateFluffText()
     {
       fluffText.text = fluffCount.ToString();
     }
