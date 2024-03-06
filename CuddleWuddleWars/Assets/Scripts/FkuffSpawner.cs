@@ -8,7 +8,7 @@ public class FkuffSpawner : MonoBehaviour
     public GameObject fluffPrefab;
     public float fluffInterval = 3.5f;
     public Transform[] spawnPoints;
-    public TextMeshProUGUI fluffCountText; // Reference to TextMeshPro 
+   
     private Coroutine spawningCoroutine;
     private List<GameObject> spawnedFluff = new List<GameObject>(); // Corrected variable name
 
