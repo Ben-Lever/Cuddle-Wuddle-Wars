@@ -1,15 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class FkuffSpawner : MonoBehaviour
 {
     public GameObject fluffPrefab;
     public float fluffInterval = 3.5f;
     public Transform[] spawnPoints;
-
+   
     private Coroutine spawningCoroutine;
-
     private List<GameObject> spawnedFluff = new List<GameObject>(); // Corrected variable name
 
     private void Start()
