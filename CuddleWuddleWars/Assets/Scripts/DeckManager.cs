@@ -39,6 +39,7 @@ public class DeckManager : MonoBehaviour
                 // Assuming you have a method FindCardByUniqueID that retrieves the corresponding Card Scriptable Object
                 ///////////
                 
+                /*
                 Card card = CardManager.Instance.FindCardByUniqueID(cardData.uniqueID);
                 if (card != null)
                 {
@@ -49,6 +50,7 @@ public class DeckManager : MonoBehaviour
                     card.hitSpeedIV = cardData.hitSpeedIV;
                     loadedDeck.Add(card);
                 }
+                */
                 
             }
 
