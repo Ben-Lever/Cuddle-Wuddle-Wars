@@ -10,9 +10,11 @@ public enum UnitType
 }
 
 [CreateAssetMenu(fileName = "New Card", menuName = "Card")]
+[System.Serializable]
 public class Card : ScriptableObject
 {
     public string cardName;
+    public string uniqueID;
     public Sprite artwork;
     public UnitType unitType;
     public int baseAttack;
@@ -26,6 +28,9 @@ public class Card : ScriptableObject
     // Constructor to initialize a card with its base stats and random IVs
     public void InitialiseCard()
     {
+        Card newCard = ScriptableObject.CreateInstance<Card>();
+        newCard.uniqueID = System.Guid.NewGuid().ToString();
+
         AssignBaseStats();
         GenerateRandomIVs();
     }
@@ -71,5 +76,36 @@ public class Card : ScriptableObject
     {
         level++;
         // Optional: Adjust IVs or base stats based on level
+    }
+}
+
+[System.Serializable]
+public class CardData
+{
+    public string cardName;
+    public string uniqueID;
+    public Sprite artwork;
+    public UnitType unitType;
+    public int baseAttack;
+    public int baseHealth;
+    public float baseHitSpeed;
+    public int attackIV; // Additional stat points for attack
+    public int healthIV; // Additional stat points for health
+    public float hitSpeedIV; // Additional stat points for hit speed
+    public int level;
+
+    public CardData(Card card)
+    {
+        cardName = card.cardName;
+        uniqueID = card.uniqueID;
+        artwork = card.artwork;
+        unitType = card.unitType;
+        baseAttack = card.baseAttack;
+        baseHealth = card.baseHealth;
+        baseHitSpeed = card.baseHitSpeed;
+        attackIV = card.attackIV;
+        healthIV = card.healthIV;
+        hitSpeedIV = card.hitSpeedIV;
+        level = card.level;
     }
 }
