@@ -25,14 +25,20 @@ public class Card : ScriptableObject
     public float hitSpeedIV; // Additional stat points for hit speed
     public int level;
 
+    public bool isInitialised = false;
+
     // Constructor to initialize a card with its base stats and random IVs
     public void InitialiseCard()
     {
-        Card newCard = ScriptableObject.CreateInstance<Card>();
-        newCard.uniqueID = System.Guid.NewGuid().ToString();
+        
+        //Card newCard = ScriptableObject.CreateInstance<Card>();
+        //newCard.uniqueID = System.Guid.NewGuid().ToString();
+        uniqueID = System.Guid.NewGuid().ToString();
 
         AssignBaseStats();
         GenerateRandomIVs();
+        isInitialised = true;
+        
     }
 
     void AssignBaseStats()
@@ -56,6 +62,10 @@ public class Card : ScriptableObject
                 baseHitSpeed = 0.5f;
                 break;
         }
+        if (level == 0)
+        {
+            level = 1;
+        }
     }
 
     void GenerateRandomIVs()
@@ -75,6 +85,9 @@ public class Card : ScriptableObject
     public void UpgradeCard()
     {
         level++;
+        baseAttack += baseAttack + (level - 1) * 2;
+        baseHealth += baseHealth + (level - 1) * 2;
+        baseHitSpeed += baseHitSpeed + (level - 1) * 2;
         // Optional: Adjust IVs or base stats based on level
     }
 }

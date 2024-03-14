@@ -1,9 +1,41 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.IO;
 
 public class CardManager : MonoBehaviour
 {
+    public Card currentCard; // Assign this in the Inspector with your base card template
+
+    // A path to save your card data
+    private string savePath;
+
+    private void Awake()
+    {
+        savePath = Path.Combine(Application.persistentDataPath, "card.json");
+    }
+
+    public void SaveCard()
+    {
+        string json = JsonUtility.ToJson(currentCard);
+        File.WriteAllText(savePath, json);
+        Debug.Log("Card saved to " + savePath);
+    }
+
+    public void LoadCard()
+    {
+        if (File.Exists(savePath))
+        {
+            string json = File.ReadAllText(savePath);
+            JsonUtility.FromJsonOverwrite(json, currentCard);
+            Debug.Log("Card loaded from " + savePath);
+        }
+        else
+        {
+            Debug.LogError("Save file not found.");
+        }
+    }
+    /*
     public static CardManager Instance { get; private set; }
     // A Dictionary to hold all cards with their unique ID as the key
     private Dictionary<string, Card> cardDictionary = new Dictionary<string, Card>();
@@ -52,4 +84,5 @@ public class CardManager : MonoBehaviour
             return null;
         }
     }
+    */
 }

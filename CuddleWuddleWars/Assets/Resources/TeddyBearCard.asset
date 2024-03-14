@@ -12,13 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba7ca9cfb859adc45977bc4ec299c0d5, type: 3}
   m_Name: TeddyBearCard
   m_EditorClassIdentifier: 
-  cardName: Teddy Bear
+  cardName: TeddyBear
+  uniqueID: e97d2edb-2bfa-47d7-a109-5785250a0178
   artwork: {fileID: 21300000, guid: 63de7126f272f444da43b2359fe8b27a, type: 3}
   unitType: 0
-  baseAttack: 5
-  baseHealth: 100
-  baseHitSpeed: 1.5
-  attackIV: 0
-  healthIV: 5
-  hitSpeedIV: 0.080248296
-  level: 2
+  baseAttack: 132
+  baseHealth: 1652
+  baseHitSpeed: 76
+  attackIV: 1
+  healthIV: 2
+  hitSpeedIV: 0.4926319
+  level: 5
+  isInitialised: 1
