@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlushAIwalk : MonoBehaviour
 {
-    public GameObject otherPlush;
+    public GameObject otherPlush; //put whatever you want this object to move towards
     public float speed;
 
     private float distance;
