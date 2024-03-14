@@ -7,6 +7,8 @@ TagManager:
   - Fluff
   - playerPlush
   - enemyPlush
+  - PlayerWeapon
+  - EnemyWeapon
   layers:
   - Default
   - TransparentFX
