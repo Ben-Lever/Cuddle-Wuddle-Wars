@@ -25,6 +25,7 @@ public class PlushHealth : MonoBehaviour
             //ded, can play death anim here. 
             // anim.SetBool("isDead", trye);
             Debug.Log("your ded");
+            Destroy(this.gameObject);
         }
 
     }

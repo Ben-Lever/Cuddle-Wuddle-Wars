@@ -11,7 +11,7 @@ public class EnemyPlush : MonoBehaviour
             var healthComponent = collision.gameObject.GetComponent<PlushHealth>();
             if(healthComponent != null )
             {
-                healthComponent.TakeDamage(1); //put amount of damage here
+                healthComponent.TakeDamage(1); //put amount of damage they will cause here
             }
         }
     }
