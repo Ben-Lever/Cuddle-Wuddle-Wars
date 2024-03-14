@@ -347,7 +347,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65a625a143ffabf4295b48e654cd68c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  otherPlush: {fileID: 0}
+  otherPlush: {fileID: 5324972373124012819, guid: 2f9dce006df4a044b94cb2a442d85804, type: 3}
   speed: 0.6
   pushbackForce: 1.75
 --- !u!114 &6455574945660974446
