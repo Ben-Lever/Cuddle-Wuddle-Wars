@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ba7ca9cfb859adc45977bc4ec299c0d5, type: 3}
-  m_Name: TeddyBearCard
+  m_Name: HorseCard
   m_EditorClassIdentifier: 
-  cardName: TeddyBear
-  uniqueID: 17d52ba8-0144-44ee-bf24-e6b174019ef6
-  artwork: {fileID: 21300000, guid: 63de7126f272f444da43b2359fe8b27a, type: 3}
-  unitType: 0
-  baseAttack: 36836
-  baseHealth: 425956
-  baseHitSpeed: 22500
+  cardName: HorseCard
+  uniqueID: 9e61d348-bafc-4540-8f09-edf51b8456ef
+  artwork: {fileID: 21300000, guid: 61815cb8613ee2e418c278cfbcbf7157, type: 3}
+  unitType: 2
+  baseAttack: 880
+  baseHealth: 2800
+  baseHitSpeed: 272
   attackIV: 2
-  healthIV: 5
-  hitSpeedIV: 0.3608631
-  level: 13
+  healthIV: 0
+  hitSpeedIV: 0.15792415
+  level: 7
   isInitialised: 1
