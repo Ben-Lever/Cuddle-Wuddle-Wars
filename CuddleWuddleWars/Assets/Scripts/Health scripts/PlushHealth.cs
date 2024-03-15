@@ -7,6 +7,9 @@ public class PlushHealth : MonoBehaviour
     public int maxHealth = 3;
     public int currentHealth;
 
+    public GameObject fluffPrefab; // Reference to the fluff prefab 
+
+
     //public Animator anim;
 
 
@@ -22,11 +25,16 @@ public class PlushHealth : MonoBehaviour
 
         if(currentHealth < 0)
         {
-            //ded, can play death anim here. 
-            // anim.SetBool("isDead", trye);
+            //anything you want to happen when they die here
+            DropFluff(); // Call the method to drop fluff
             Debug.Log("your ded");
             Destroy(this.gameObject);
         }
 
+        void DropFluff()
+        {
+            // Instantiate the fluff prefab at the current position
+            Instantiate(fluffPrefab, transform.position, Quaternion.identity);
+        }
     }
 }
