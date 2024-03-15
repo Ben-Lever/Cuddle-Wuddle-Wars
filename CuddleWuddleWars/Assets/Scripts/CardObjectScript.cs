@@ -15,14 +15,14 @@ public class CardObjectScript : MonoBehaviour
 
     private void Start()
     {
+        
+
         if (cardInfo.isInitialised == false)
         {
             Debug.Log("Starting Card Initialisation");
             cardInfo.InitialiseCard();
             Debug.Log("Ending Card Initialisation");
         }
-
-
         SpriteRendChild.GetComponent<SpriteRenderer>().sprite = cardInfo.artwork;
         cardWriting = 
             cardInfo.cardName + "\n" 
@@ -33,11 +33,11 @@ public class CardObjectScript : MonoBehaviour
             + "Hit Speed: " + cardInfo.TotalHitSpeed;
 
         TextChild.GetComponent<TextMeshPro>().text = cardWriting;
-
     }
-
+    
     public void UpdateCardInfo()
     {
+        Debug.Log(cardInfo.cardName);
         cardWriting =
            cardInfo.cardName + "\n"
            + cardInfo.uniqueID + "\n"
@@ -57,15 +57,19 @@ public class CardObjectScript : MonoBehaviour
 
     private void Update()
     {
-        cardWriting =
+        if (cardInfo != null)
+        {
+            cardWriting =
            cardInfo.cardName + "\n"
            + cardInfo.uniqueID + "\n"
            + "lvl " + cardInfo.level + " " + cardInfo.unitType + "\n"
            + "Attack: " + cardInfo.TotalAttack + "\n"
            + "Health: " + cardInfo.TotalHealth + "\n"
            + "Hit Speed: " + cardInfo.TotalHitSpeed;
-        TextChild.GetComponent<TextMeshPro>().text = cardWriting;
-        SpriteRendChild.GetComponent<SpriteRenderer>().sprite = cardInfo.artwork;
+            TextChild.GetComponent<TextMeshPro>().text = cardWriting;
+            SpriteRendChild.GetComponent<SpriteRenderer>().sprite = cardInfo.artwork;
+        }
+        
     }
 
     private void OnMouseDown()

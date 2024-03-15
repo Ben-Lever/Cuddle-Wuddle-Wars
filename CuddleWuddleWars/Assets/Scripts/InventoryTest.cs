@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
@@ -5,11 +6,14 @@ using UnityEngine;
 
 public class InventoryTest : MonoBehaviour
 {
-    public PrefabAssetType buttonPrefab;
-    public GameObject CardManager;
+    public GameObject buttonPrefab;
+    public GameObject CardManagerObject;
+    public CardManager CardManager;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
+        CardManager = CardManagerObject.GetComponent<CardManager>();
+
         
     }
 

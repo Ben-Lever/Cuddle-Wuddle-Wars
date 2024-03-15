@@ -15,6 +15,7 @@ public class CardManager : MonoBehaviour
     public GameObject PlayerDeck;
     public List<GameObject> playerDeckList = new List<GameObject>();
     public CardObjectScript cardObjectScript;
+    public List<Card> TotalCardList = new List<Card>();
 
     private void Awake()
     {
@@ -36,7 +37,12 @@ public class CardManager : MonoBehaviour
                     i++;
                 }
             }
+            foreach (var CARD in currentDeck)
+            {
+                TotalCardList.Add(CARD);
+            }
         }
+        DeckManager();
     }
 
     public void InstantiateDeck()
@@ -45,9 +51,14 @@ public class CardManager : MonoBehaviour
 
         foreach (var cardTemplate in currentDeckTemplate)
         {
-            Card newCardInstance = ScriptableObject.CreateInstance<Card>();
-            newCardInstance.CopyCard(cardTemplate);
-            currentDeck.Add(newCardInstance);
+            if (cardTemplate.unitType != UnitType.Blank)
+            {
+                Debug.Log("Im being triggered");
+                Card newCardInstance = ScriptableObject.CreateInstance<Card>();
+                newCardInstance.CopyCard(cardTemplate);
+                //currentDeck.Add(newCardInstance);
+            }
+
         }
     }
 
@@ -122,6 +133,73 @@ public class CardManager : MonoBehaviour
         {
             child.GetComponent<CardObjectScript>().LvlUp();
         }   
+    }
+
+    public void GenerateRandomCard()
+    {
+        int randomIndex = Random.Range(0, currentDeckTemplate.Length);
+        Card selectedTemplate = currentDeckTemplate[randomIndex];
+
+        Card newCardInstance = Instantiate(selectedTemplate);
+        if (newCardInstance.isInitialised == false)
+        {
+            newCardInstance.InitialiseCard();
+        }
+        TotalCardList.Add(newCardInstance);
+        DeckManager();
+    }
+
+    public void DeckManager()
+    {
+        // Ensure the deck has less than 4 cards and attempt to fill it up
+        while (currentDeck.Count < 4 && TotalCardList.Count > currentDeck.Count)
+        {
+            foreach (var potentialCardToAdd in TotalCardList)
+            {
+                if (!currentDeck.Contains(potentialCardToAdd))
+                {
+                    currentDeck.Add(potentialCardToAdd);
+
+                    // Update the GameObjects representing cards in the player's deck.
+                    UpdateCardGameObjects();
+
+                    // Break since we've successfully added a card.
+                    break;
+                }
+            }
+        }
+        /*
+        //Is there room in the Deck?
+        if (currentDeck.Count > 4)
+        {
+            for (int i = currentDeck.Count; i < 4; i++ )
+            {
+                if (currentDeck[i] != TotalCardList[i])
+                {
+                    currentDeck.Add(TotalCardList[i]);
+                }
+                else
+                {
+                    
+                }
+
+            }
+        }
+        */
+    }
+    private void UpdateCardGameObjects()
+    {
+        // Make sure not to exceed bounds of either list
+        int count = Mathf.Min(playerDeckList.Count, currentDeck.Count);
+
+        for (int i = 0; i < count; i++)
+        {
+            var script = playerDeckList[i].GetComponent<CardObjectScript>();
+            if (script != null)
+            {
+                script.cardInfo = currentDeck[i];
+            }
+        }
     }
     /*
     public static CardManager Instance { get; private set; }

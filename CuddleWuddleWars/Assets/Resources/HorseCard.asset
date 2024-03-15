@@ -23,4 +23,4 @@ MonoBehaviour:
   healthIV: 0
   hitSpeedIV: 0
   level: 0
-  isInitialised: 0
+  isInitialised: 1

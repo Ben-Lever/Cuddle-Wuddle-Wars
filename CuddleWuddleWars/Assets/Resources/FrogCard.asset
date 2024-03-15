@@ -20,7 +20,7 @@ MonoBehaviour:
   baseHealth: 0
   baseHitSpeed: 0
   attackIV: 0
-  healthIV: 8
+  healthIV: 0
   hitSpeedIV: 0
   level: 0
   isInitialised: 0
