@@ -15,7 +15,7 @@ MonoBehaviour:
   cardName: BlankCard
   uniqueID: 
   artwork: {fileID: 0}
-  unitType: 0
+  unitType: 3
   baseAttack: 0
   baseHealth: 0
   baseHitSpeed: 0

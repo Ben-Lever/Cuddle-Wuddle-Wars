@@ -13,14 +13,14 @@ MonoBehaviour:
   m_Name: FrogCard
   m_EditorClassIdentifier: 
   cardName: Frog
-  uniqueID: 49e2e778-9b50-4949-91ce-25057f1f4575
+  uniqueID: 
   artwork: {fileID: -832901786, guid: d41657068d27eff4c935cc5817d261e3, type: 3}
   unitType: 1
-  baseAttack: 432
-  baseHealth: 4080
-  baseHitSpeed: 304
-  attackIV: 1
-  healthIV: 0
-  hitSpeedIV: 0.05382198
-  level: 7
-  isInitialised: 1
+  baseAttack: 0
+  baseHealth: 0
+  baseHitSpeed: 0
+  attackIV: 0
+  healthIV: 8
+  hitSpeedIV: 0
+  level: 0
+  isInitialised: 0

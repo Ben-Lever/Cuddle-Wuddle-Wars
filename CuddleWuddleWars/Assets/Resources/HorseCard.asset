@@ -13,14 +13,14 @@ MonoBehaviour:
   m_Name: HorseCard
   m_EditorClassIdentifier: 
   cardName: HorseCard
-  uniqueID: 9e61d348-bafc-4540-8f09-edf51b8456ef
+  uniqueID: 
   artwork: {fileID: 21300000, guid: 61815cb8613ee2e418c278cfbcbf7157, type: 3}
   unitType: 2
-  baseAttack: 880
-  baseHealth: 2800
-  baseHitSpeed: 272
-  attackIV: 2
+  baseAttack: 0
+  baseHealth: 0
+  baseHitSpeed: 0
+  attackIV: 0
   healthIV: 0
-  hitSpeedIV: 0.15792415
-  level: 7
-  isInitialised: 1
+  hitSpeedIV: 0
+  level: 0
+  isInitialised: 0

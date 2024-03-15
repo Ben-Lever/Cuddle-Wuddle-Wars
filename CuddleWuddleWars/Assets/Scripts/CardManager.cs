@@ -6,10 +6,11 @@ using JetBrains.Annotations;
 
 public class CardManager : MonoBehaviour
 {
-    public Card currentCard; // Assign this in the Inspector with your base card template
+    //public Card currentCard; // Assign this in the Inspector with your base card template
 
     // A path to save your card data
     private string savePath;
+    public Card[] currentDeckTemplate;
     public List<Card> currentDeck; // This will hold your deck of cards
     public GameObject PlayerDeck;
     public List<GameObject> playerDeckList = new List<GameObject>();
@@ -18,9 +19,10 @@ public class CardManager : MonoBehaviour
     private void Awake()
     {
         savePath = Path.Combine(Application.persistentDataPath, "deck.json");
-
+        InstantiateDeck();
         if (PlayerDeck != null )
         {
+            int i = 0;
             foreach (Transform child in PlayerDeck.transform)
             {
                 playerDeckList.Add(child.gameObject);
@@ -28,12 +30,26 @@ public class CardManager : MonoBehaviour
                 cardObjectScript = child.GetComponent<CardObjectScript>();
                 if (cardObjectScript != null)
                 {
+                    
                     cardObjectScript = child.gameObject.GetComponent<CardObjectScript>();
+                    cardObjectScript.cardInfo = currentDeck[i];
+                    i++;
                 }
             }
         }
     }
 
+    public void InstantiateDeck()
+    {
+        currentDeck.Clear();
+
+        foreach (var cardTemplate in currentDeckTemplate)
+        {
+            Card newCardInstance = ScriptableObject.CreateInstance<Card>();
+            newCardInstance.CopyCard(cardTemplate);
+            currentDeck.Add(newCardInstance);
+        }
+    }
 
     public void SaveCard()
     {
@@ -65,6 +81,8 @@ public class CardManager : MonoBehaviour
             string json = File.ReadAllText(savePath);
             // Deserialize the JSON back to the list of card data objects
             Serialization<List<CardData>> deckData = JsonUtility.FromJson<Serialization<List<CardData>>>(json);
+
+            //InstantiateDeck();
 
             for (int i = 0; i < currentDeck.Count; i++)
             {

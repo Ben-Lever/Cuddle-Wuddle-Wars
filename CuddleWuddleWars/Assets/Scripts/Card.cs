@@ -6,7 +6,8 @@ public enum UnitType
 {
     Tank, 
     Support,
-    Damage
+    Damage,
+    Blank
 }
 
 [CreateAssetMenu(fileName = "New Card", menuName = "Card")]
@@ -61,6 +62,11 @@ public class Card : ScriptableObject
                 baseHealth = 40;
                 baseHitSpeed = 0.5f;
                 break;
+            case UnitType.Blank:
+                baseAttack = 0;
+                baseHealth = 0;
+                baseHitSpeed = 0;
+                break;
         }
         if (level == 0)
         {
@@ -89,6 +95,21 @@ public class Card : ScriptableObject
         baseHealth += baseHealth + (level - 1) * 2;
         baseHitSpeed += baseHitSpeed + (level - 1) * 2;
         // Optional: Adjust IVs or base stats based on level
+    }
+
+
+    public void CopyCard(Card other)
+    {
+        cardName = other.cardName;
+        uniqueID = other.uniqueID;
+        artwork = other.artwork;
+        unitType = other.unitType;
+        baseAttack = other.baseAttack;
+        baseHealth = other.baseHealth;
+        baseHitSpeed = other.baseHitSpeed;
+        attackIV = other.attackIV;
+        healthIV = other.healthIV;
+        level = other.level;
     }
 }
 
@@ -121,4 +142,5 @@ public class CardData
         hitSpeedIV = card.hitSpeedIV;
         level = card.level;
     }
+
 }
