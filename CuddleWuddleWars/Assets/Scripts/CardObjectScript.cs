@@ -11,6 +11,8 @@ public class CardObjectScript : MonoBehaviour
     public Card cardInfo;
     public string cardWriting;
 
+    public GameObject InventoryCanvas;
+
     private void Start()
     {
         if (cardInfo.isInitialised == false)
@@ -66,5 +68,10 @@ public class CardObjectScript : MonoBehaviour
         SpriteRendChild.GetComponent<SpriteRenderer>().sprite = cardInfo.artwork;
     }
 
-
+    private void OnMouseDown()
+    {
+        Debug.Log("Mouse clicked");
+        InventoryCanvas.SetActive(true);
+        this.GetComponent<BoxCollider2D>().enabled = false;
+    }
 }

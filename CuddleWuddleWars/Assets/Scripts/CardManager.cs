@@ -64,14 +64,11 @@ public class CardManager : MonoBehaviour
         string json = JsonUtility.ToJson(new Serialization<List<CardData>>(deckData), true);
         File.WriteAllText(savePath, json);
         Debug.Log("Deck saved to " + savePath);
-
-
         /*
         string json = JsonUtility.ToJson(currentCard);
         File.WriteAllText(savePath, json);
         Debug.Log("Card saved to " + savePath);
         */
-        
     }
 
     public void LoadCard()
@@ -99,16 +96,12 @@ public class CardManager : MonoBehaviour
                     Debug.LogWarning("Insufficient savedScriptableObjects for all children.");
                 }
             }
-
             Debug.Log("Deck loaded from " + savePath);
         }
         else
         {
             Debug.LogError("Save file not found.");
         }
-
-        
-
         /*
         if (File.Exists(savePath))
         {
@@ -128,8 +121,7 @@ public class CardManager : MonoBehaviour
         foreach (Transform child in PlayerDeck.transform)
         {
             child.GetComponent<CardObjectScript>().LvlUp();
-        }
-            
+        }   
     }
     /*
     public static CardManager Instance { get; private set; }
