@@ -13,6 +13,8 @@ public class CardObjectScript : MonoBehaviour
 
     public GameObject InventoryCanvas;
 
+    public int Index { get; private set; }
+
     private void Start()
     {
         
@@ -75,7 +77,21 @@ public class CardObjectScript : MonoBehaviour
     private void OnMouseDown()
     {
         Debug.Log("Mouse clicked");
-        InventoryCanvas.SetActive(true);
-        this.GetComponent<BoxCollider2D>().enabled = false;
+        CardManager.selectedCard = Index;
+        Debug.Log("selectedCard = " + CardManager.selectedCard);
+        InventoryCanvas.GetComponent<Canvas>().enabled = true;
+        var list = CardManager.playerDeckList;
+        foreach (var child in list)
+        {
+            child.GetComponent<BoxCollider2D>().enabled = false;
+        }
     }
+
+    public void SetIndex(int index)
+    {
+        Index = index;
+        Debug.Log("this object's indes: " + Index);
+    }
+
+
 }

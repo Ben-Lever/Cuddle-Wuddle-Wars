@@ -13,14 +13,14 @@ MonoBehaviour:
   m_Name: BlankCard
   m_EditorClassIdentifier: 
   cardName: BlankCard
-  uniqueID: 181c06f5-c815-47f6-a044-a0ac27aff3d3
+  uniqueID: 
   artwork: {fileID: 0}
   unitType: 3
   baseAttack: 0
   baseHealth: 0
   baseHitSpeed: 0
-  attackIV: 2
-  healthIV: 3
-  hitSpeedIV: 0.19644997
+  attackIV: 0
+  healthIV: 0
+  hitSpeedIV: 0
   level: 1
   isInitialised: 1
