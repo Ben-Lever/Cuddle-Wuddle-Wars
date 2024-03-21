@@ -405,7 +405,7 @@ GameObject:
   - component: {fileID: 332186286}
   - component: {fileID: 332186287}
   m_Layer: 0
-  m_Name: Shop (1)
+  m_Name: enemyStore
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1459,7 +1459,7 @@ GameObject:
   - component: {fileID: 686107367}
   - component: {fileID: 686107368}
   m_Layer: 0
-  m_Name: Shop
+  m_Name: playerStore
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3486,6 +3486,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2035947655834422797, guid: ea9574d7b7089114f8619adce7232a0d, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2035947655834422797, guid: ea9574d7b7089114f8619adce7232a0d, type: 3}
       propertyPath: otherPlush
       value: 

@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6459658973417279725}
   - component: {fileID: 2035947655834422797}
   - component: {fileID: 6095150172569764942}
+  - component: {fileID: 7376651942860155577}
   - component: {fileID: 5577208114313931324}
   - component: {fileID: 7673484420851811481}
   m_Layer: 0
@@ -159,7 +160,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2925377228705464591}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 65a625a143ffabf4295b48e654cd68c3, type: 3}
   m_Name: 
@@ -181,6 +182,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 4
   currentHealth: 0
+  fluffPrefab: {fileID: 2062954291709943400, guid: 4d118c4f449c5084cb82f4fb685354e8, type: 3}
+--- !u!114 &7376651942860155577
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2925377228705464591}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2c99963a74af904290dac4242765dbf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  store: {fileID: 2310915717240233683, guid: c8e4f760fd1bf1a4f91ea7b2c6c94573, type: 3}
+  objectTag: enemyPlush
+  speed: 0.6
+  pushbackForce: 2
 --- !u!114 &5577208114313931324
 MonoBehaviour:
   m_ObjectHideFlags: 0
