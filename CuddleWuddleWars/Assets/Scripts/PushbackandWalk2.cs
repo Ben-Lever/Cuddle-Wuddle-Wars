@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerPushbackandWalk2 : MonoBehaviour
+public class PushbackandWalk2 : MonoBehaviour
 {
     public GameObject store; // The store object to walk towards
-    public string objectTag = "enemyPlush"; // Tag for what this is attacking
+    public string plushTag; // Tag plush it will be pushing off
+    public string storeTag; //tag of store it will push off of
     public float speed;
     public float pushbackForce;
 
@@ -27,7 +28,15 @@ public class PlayerPushbackandWalk2 : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag(objectTag))
+        if (collision.gameObject.CompareTag(plushTag))
+        {
+            // Calculate pushback direction
+            Vector2 pushbackDirection = (transform.position - collision.transform.position).normalized;
+
+            // Apply pushback force to the plush
+            rb.AddForce(pushbackDirection * pushbackForce, ForceMode2D.Impulse);
+        }
+        if (collision.gameObject.CompareTag(storeTag))
         {
             // Calculate pushback direction
             Vector2 pushbackDirection = (transform.position - collision.transform.position).normalized;

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5647689734037010450}
   - component: {fileID: 4996115071377718421}
   - component: {fileID: 2063983708532400209}
-  - component: {fileID: 3628674151966123040}
+  - component: {fileID: 4115005014981675489}
   m_Layer: 0
   m_Name: enemy fruddle
   m_TagString: enemyPlush
@@ -161,7 +161,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 4
 --- !u!114 &2063983708532400209
 MonoBehaviour:
@@ -177,7 +177,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 2
   currentHealth: 0
---- !u!114 &3628674151966123040
+  fluffPrefab: {fileID: 2062954291709943400, guid: 4d118c4f449c5084cb82f4fb685354e8, type: 3}
+--- !u!114 &4115005014981675489
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -186,9 +187,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 5324972373124012819}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 65a625a143ffabf4295b48e654cd68c3, type: 3}
+  m_Script: {fileID: 11500000, guid: f2c99963a74af904290dac4242765dbf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  otherPlush: {fileID: 0}
-  speed: 0.39
-  pushbackForce: 1.51
+  store: {fileID: 1069484993705334970, guid: e85d9c4acab40604eaefa2267630a635, type: 3}
+  plushTag: playerPlush
+  storeTag: playerStore
+  speed: 0.5
+  pushbackForce: 2

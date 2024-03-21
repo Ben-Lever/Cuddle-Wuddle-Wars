@@ -9,6 +9,8 @@ TagManager:
   - enemyPlush
   - PlayerWeapon
   - EnemyWeapon
+  - playerStore
+  - enemyStore
   layers:
   - Default
   - TransparentFX

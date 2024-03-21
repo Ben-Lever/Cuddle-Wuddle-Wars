@@ -150,7 +150,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 4
 --- !u!114 &6095150172569764942
 MonoBehaviour:
@@ -180,9 +180,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   store: {fileID: 2310915717240233683, guid: c8e4f760fd1bf1a4f91ea7b2c6c94573, type: 3}
-  objectTag: enemyPlush
+  plushTag: enemyPlush
+  storeTag: enemyStore
   speed: 0.6
-  pushbackForce: 2
+  pushbackForce: 3
 --- !u!114 &5577208114313931324
 MonoBehaviour:
   m_ObjectHideFlags: 0
