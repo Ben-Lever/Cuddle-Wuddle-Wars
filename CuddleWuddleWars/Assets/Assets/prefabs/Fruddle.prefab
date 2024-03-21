@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 7376651942860155577}
   - component: {fileID: 5577208114313931324}
   - component: {fileID: 7673484420851811481}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Fruddle
   m_TagString: playerPlush
   m_Icon: {fileID: 0}
