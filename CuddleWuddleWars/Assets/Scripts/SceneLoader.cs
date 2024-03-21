@@ -5,13 +5,16 @@ using UnityEngine.SceneManagement;
 
 public class SceneLoader : MonoBehaviour
 {
-    public AudioSource soundPlayer;
+    //public AudioSource soundPlayer;
 
     public void PlayGame()
     {
         SceneManager.LoadScene("BattleScene");
     }
-
+    public void BackToMenu ()
+    {
+        SceneManager.LoadScene("MainHub");
+    }
     public void QuitGame()
     {
         Debug.Log("Quit");
@@ -20,7 +23,7 @@ public class SceneLoader : MonoBehaviour
 
     public void playAudio()
     {
-        soundPlayer.Play();
+        //soundPlayer.Play();
     }
 
 

@@ -194,4 +194,4 @@ MonoBehaviour:
   plushTag: playerPlush
   storeTag: playerStore
   speed: 0.5
-  pushbackForce: 2
+  pushbackForce: 3

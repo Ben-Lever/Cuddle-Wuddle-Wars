@@ -7,6 +7,8 @@ public class StoreHealth : MonoBehaviour
     public int maxHealth = 3;
     public int currentHealth;
 
+    public GameObject gameOverCanvas;
+
     void Start()
     {
         currentHealth = maxHealth;
@@ -17,8 +19,8 @@ public class StoreHealth : MonoBehaviour
         currentHealth -= amount;
 
         if (currentHealth < 0)
-        {
-            //anything you want to happen when they lose here
+        {//anything you want to happen when they lose here
+            gameOverCanvas.SetActive(true);
             Debug.Log("this store lost");
         }
     }
