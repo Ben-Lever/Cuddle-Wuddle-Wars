@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5518958050546867903}
   - component: {fileID: 3403986286716484304}
   - component: {fileID: 4159179558712263488}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Dropped fluff
   m_TagString: Fluff
   m_Icon: {fileID: 0}

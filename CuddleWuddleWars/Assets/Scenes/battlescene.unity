@@ -2601,7 +2601,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fluffPrefab: {fileID: 5324972373124012819, guid: 2f9dce006df4a044b94cb2a442d85804, type: 3}
-  fluffInterval: 2.96
+  fluffInterval: 3.45
   spawnPoints:
   - {fileID: 1625513751}
 --- !u!4 &985547365
