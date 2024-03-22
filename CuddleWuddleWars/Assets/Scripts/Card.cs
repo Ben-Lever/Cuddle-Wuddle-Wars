@@ -28,6 +28,7 @@ public class Card : ScriptableObject
 
     public bool isInitialised = false;
 
+    public GameObject associatedButton;
     // Constructor to initialize a card with its base stats and random IVs
     public void InitialiseCard()
     {
@@ -94,6 +95,7 @@ public class Card : ScriptableObject
         baseAttack += baseAttack + (level - 1) * 2;
         baseHealth += baseHealth + (level - 1) * 2;
         baseHitSpeed += baseHitSpeed + (level - 1) * 2;
+        associatedButton.GetComponent<InventoryButtons>().UpdateButton();
         // Optional: Adjust IVs or base stats based on level
     }
 
@@ -110,7 +112,8 @@ public class Card : ScriptableObject
         attackIV = other.attackIV;
         healthIV = other.healthIV;
         level = other.level;
-    }
+        associatedButton = other.associatedButton;
+}
 }
 
 [System.Serializable]
@@ -127,6 +130,7 @@ public class CardData
     public int healthIV; // Additional stat points for health
     public float hitSpeedIV; // Additional stat points for hit speed
     public int level;
+    public GameObject associatedButton;
 
     public CardData(Card card)
     {
@@ -141,6 +145,7 @@ public class CardData
         healthIV = card.healthIV;
         hitSpeedIV = card.hitSpeedIV;
         level = card.level;
+        associatedButton = card.associatedButton;
     }
 
 }

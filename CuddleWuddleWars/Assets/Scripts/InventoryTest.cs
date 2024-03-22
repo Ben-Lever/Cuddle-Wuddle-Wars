@@ -19,6 +19,9 @@ public class InventoryTest : MonoBehaviour
         GameObject newButton = Instantiate(buttonPrefab, buttonParent);
         newButton.GetComponent<InventoryButtons>().cardInfo = card;
         newButton.GetComponent<InventoryButtons>().obj = this.gameObject;
+
+        card.associatedButton = newButton;
+
         // Set the button's text to the card's name and level
         TextMeshProUGUI buttonText = newButton.GetComponentInChildren<TextMeshProUGUI>();
         if (buttonText != null)
