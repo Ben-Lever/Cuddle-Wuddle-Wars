@@ -98,7 +98,7 @@ public class CardManager : MonoBehaviour
     public void SaveCard()
     {
         List<CardData> deckData = new List<CardData>();
-        foreach (var card in currentDeck)
+        foreach (var card in TotalCardList) /////////////////////USED TO BE CURRENTDECK
         {
             CardData data = new CardData(card);
             deckData.Add(data);
@@ -125,15 +125,15 @@ public class CardManager : MonoBehaviour
 
             //InstantiateDeck();
 
-            for (int i = 0; i < currentDeck.Count; i++)
+            for (int i = 0; i < TotalCardList.Count; i++)
             {
                 // Assuming the deck is already populated with the correct number of cards, overwrite their data
-                JsonUtility.FromJsonOverwrite(JsonUtility.ToJson(deckData.data[i]), currentDeck[i]);
+                JsonUtility.FromJsonOverwrite(JsonUtility.ToJson(deckData.data[i]), TotalCardList[i]);
 
                 int index = playerDeckList.Count - 1;
-                if (index < currentDeck.Count)
+                if (index < TotalCardList.Count)
                 {
-                    cardObjectScript.cardInfo = (currentDeck[index]);
+                    //cardObjectScript.cardInfo = (TotalCardList[index]);
                 }
                 else
                 {
