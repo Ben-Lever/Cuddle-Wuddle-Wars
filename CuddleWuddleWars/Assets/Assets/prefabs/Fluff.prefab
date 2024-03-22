@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 3802275078361431816}
   - component: {fileID: 5518958050546867903}
   - component: {fileID: 3403986286716484304}
-  - component: {fileID: 4159179558712263488}
-  m_Layer: 0
+  - component: {fileID: 7089361756060862267}
+  m_Layer: 3
   m_Name: Fluff
   m_TagString: Fluff
   m_Icon: {fileID: 0}
@@ -113,8 +113,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
---- !u!61 &4159179558712263488
-BoxCollider2D:
+--- !u!58 &7089361756060862267
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -142,19 +142,9 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.5773989, y: 0.1776607}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 19.199999, y: 10.799999}
-    newSize: {x: 19.2, y: 10.8}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
+  m_Offset: {x: -0.43590236, y: 0.47781855}
   serializedVersion: 2
-  m_Size: {x: 6.2307367, y: 4.670691}
-  m_EdgeRadius: 0
+  m_Radius: 3.1703959
