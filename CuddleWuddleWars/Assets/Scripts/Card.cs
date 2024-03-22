@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Animations;
 using UnityEngine;
 
 public enum UnitType
@@ -29,6 +30,9 @@ public class Card : ScriptableObject
     public bool isInitialised = false;
 
     public GameObject associatedButton;
+
+    public AnimatorController animatorController;
+
     // Constructor to initialize a card with its base stats and random IVs
     public void InitialiseCard()
     {
