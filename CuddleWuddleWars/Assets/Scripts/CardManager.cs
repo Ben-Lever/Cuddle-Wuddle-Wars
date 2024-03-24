@@ -54,7 +54,7 @@ public class CardManager : MonoBehaviour
                 InventoryUIManager.GetComponent<InventoryTest>().UpdateInventoryCardButtons(card);
             }
         }
-        /*if (PlayerDeck != null )
+        /*if (PlayerDeck != null )/////// Commentted on sun 25/5
         {
             int i = 0;
             foreach (Transform child in PlayerDeck.transform)
