@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ba7ca9cfb859adc45977bc4ec299c0d5, type: 3}
-  m_Name: FrogCard
+  m_Name: FruddleCard
   m_EditorClassIdentifier: 
-  cardName: Frog
+  cardName: Fruddle
   uniqueID: 
   artwork: {fileID: -832901786, guid: d41657068d27eff4c935cc5817d261e3, type: 3}
-  unitType: 1
+  unitType: 2
   baseAttack: 0
   baseHealth: 0
   baseHitSpeed: 0
@@ -25,4 +25,4 @@ MonoBehaviour:
   level: 0
   isInitialised: 0
   associatedButton: {fileID: 0}
-  animatorController: {fileID: 0}
+  animatorController: {fileID: 9100000, guid: 13a4b8eed3593b343931e60f2b934081, type: 2}
