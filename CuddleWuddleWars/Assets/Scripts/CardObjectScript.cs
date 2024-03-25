@@ -13,12 +13,12 @@ public class CardObjectScript : MonoBehaviour
 
     public GameObject InventoryCanvas;
 
-
+    /*////////////////////////////////////////// Kelecia's Scripts
     public GameObject plushPrefab; //place plush card here
     public int plushCost = 1;
 
     public Transform[] spawnPoints; // Array of spawn points
-
+    */
     public int Index { get; private set; }
 
     private void Start()
@@ -50,6 +50,7 @@ public class CardObjectScript : MonoBehaviour
     
     public void UpdateCardInfo()
     {
+        /*
         Debug.Log(cardInfo.cardName);
         cardWriting =
            cardInfo.cardName + "\n"
@@ -60,6 +61,12 @@ public class CardObjectScript : MonoBehaviour
            + "Hit Speed: " + cardInfo.TotalHitSpeed;
         TextChild.GetComponent<TextMeshPro>().text = cardWriting;
         SpriteRendChild.GetComponent<SpriteRenderer>().sprite = cardInfo.artwork;
+        */
+
+        cardWriting = "LVL: " + cardInfo.level;
+        TextChild.GetComponent<TextMeshPro>().text = cardWriting;
+        SpriteRendChild.GetComponent<SpriteRenderer>().sprite = cardInfo.artwork;
+        //CardManager.instance.TrueCurrentDeck();
     }
 
     public void LvlUp()
@@ -89,17 +96,19 @@ public class CardObjectScript : MonoBehaviour
     private void OnMouseDown()
     {
         Debug.Log("Mouse clicked");
-        //CardManager.selectedCard = Index;/////// Commentted on sun 25/5
-        //Debug.Log("selectedCard = " + CardManager.selectedCard);
-        //InventoryCanvas.GetComponent<Canvas>().enabled = true;
-        /*
+        CardManager.selectedCard = Index;
+        Debug.Log("selectedCard = " + CardManager.selectedCard);
+        InventoryCanvas.GetComponent<Canvas>().enabled = true;
+        
         var list = CardManager.playerDeckList;
         foreach (var child in list)
         {
             child.GetComponent<BoxCollider2D>().enabled = false;
         }
-        */
 
+
+
+        /*////////////////////////////////////////// Kelecia's Scripts
         //FluffCollector script attached to a GameObject in the scene
         FluffCollector fluffCollector = FindObjectOfType<FluffCollector>();
 
@@ -115,21 +124,22 @@ public class CardObjectScript : MonoBehaviour
         {
             Debug.Log("Not enough fluff to spawn plush");
         }
+        */
     }
     public void OnButtonPress()
     {
         Debug.Log("Mouse clicked");
-        //CardManager.selectedCard = Index;/////// Commentted on sun 25/5
-        //Debug.Log("selectedCard = " + CardManager.selectedCard);
-        //InventoryCanvas.GetComponent<Canvas>().enabled = true;
-        /*
+        CardManager.selectedCard = Index;
+        Debug.Log("selectedCard = " + CardManager.selectedCard);
+        InventoryCanvas.GetComponent<Canvas>().enabled = true;
+        
         var list = CardManager.playerDeckList;
         foreach (var child in list)
         {
             child.GetComponent<BoxCollider2D>().enabled = false;
         }
-        */
-
+        
+        /*////////////////////////////////////////// Kelecia's Scripts
         //FluffCollector script attached to a GameObject in the scene
         FluffCollector fluffCollector = FindObjectOfType<FluffCollector>();
 
@@ -145,6 +155,7 @@ public class CardObjectScript : MonoBehaviour
         {
             Debug.Log("Not enough fluff to spawn plush");
         }
+        */
     }
 
     public void SetIndex(int index)
@@ -153,10 +164,12 @@ public class CardObjectScript : MonoBehaviour
         Debug.Log("this object's indes: " + Index);
     }
 
+    /*////////////////////////////////////////// Kelecia's Scripts
     void SpawnPlush()
     {
         // Implement your logic to spawn a plush at a chosen spawn point
         int randomSpawnIndex = Random.Range(0, spawnPoints.Length);
         Instantiate(plushPrefab, spawnPoints[randomSpawnIndex].position, Quaternion.identity);
     }
+    */
 }

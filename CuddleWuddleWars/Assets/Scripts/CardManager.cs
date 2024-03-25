@@ -6,22 +6,33 @@ using JetBrains.Annotations;
 
 public class CardManager : MonoBehaviour
 {
-    public static CardManager instance;
+    public static CardManager Instance { get; private set; }
 
     // A path to save your card data
     private string savePath;
     public Card[] currentDeckTemplate;
-    public List<Card> currentDeck; // This will hold your deck of cards
+    public List<Card> currentDeck; 
     public GameObject PlayerDeck;
     public static List<GameObject> playerDeckList = new List<GameObject>();
     public CardObjectScript cardObjectScript;
     public static List<Card> TotalCardList = new List<Card>();
     public GameObject InventoryUIManager;
     public static int selectedCard;
+
+    public static List<Card> TrueCurrentDeck;
     
 
     private void Awake()
     {
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject); // Optional: persist across scenes
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
         savePath = Path.Combine(Application.persistentDataPath, "deck.json");
         InstantiateDeck();
 
@@ -54,7 +65,7 @@ public class CardManager : MonoBehaviour
                 InventoryUIManager.GetComponent<InventoryTest>().UpdateInventoryCardButtons(card);
             }
         }
-        /*if (PlayerDeck != null )/////// Commentted on sun 25/5
+        if (PlayerDeck != null )/////// Commentted on sun 25/5
         {
             int i = 0;
             foreach (Transform child in PlayerDeck.transform)
@@ -74,7 +85,7 @@ public class CardManager : MonoBehaviour
             {
                 TotalCardList.Add(CARD);
             }
-        }*/
+        }
         DeckManager();
     }
 
@@ -236,6 +247,7 @@ public class CardManager : MonoBehaviour
                 script.UpdateCardInfo();
             }
         }
+        //UpdateTrueCurrentDeck();/////////////////////////////////////////////////////////////
     }
 
     private void UpdateDeckVisuals()
@@ -257,6 +269,17 @@ public class CardManager : MonoBehaviour
                 //playerDeckList[i].SetActive(false);////////////////////////////////////
             }
         }
+        //UpdateTrueCurrentDeck();/////////////////////////////////////////////////////////////////
+    }
+
+    public void SwapCardInDeck(int cardIndexToSwap, Card newCard)
+    {
+        if (cardIndexToSwap < currentDeck.Count)
+        {
+            currentDeck[cardIndexToSwap] = newCard;
+            
+        }
+
     }
     /*
     public static CardManager Instance { get; private set; }

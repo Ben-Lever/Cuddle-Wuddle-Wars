@@ -11,6 +11,8 @@ public class InventoryButtons : MonoBehaviour
     {
         var toBeSwapped = CardManager.playerDeckList[CardManager.selectedCard];
         toBeSwapped.GetComponent<CardObjectScript>().cardInfo = cardInfo;
+        toBeSwapped.GetComponent<CardObjectScript>().UpdateCardInfo();
+        CardManager.Instance.SwapCardInDeck(CardManager.selectedCard, cardInfo);
         obj.GetComponent<InventoryTest>().CloseInventory();
 
     }
