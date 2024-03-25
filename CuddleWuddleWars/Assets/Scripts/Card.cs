@@ -31,7 +31,7 @@ public class Card : ScriptableObject
 
     public GameObject associatedButton;
 
-    public AnimatorController animatorController;
+    public RuntimeAnimatorController animatorController;
 
     // Constructor to initialize a card with its base stats and random IVs
     public void InitialiseCard()
