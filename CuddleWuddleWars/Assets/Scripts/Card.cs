@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Animations;
 using UnityEngine;
 
 public enum UnitType
 {
     Tank, 
     Support,
-    Damage
+    Damage,
+    Blank
 }
 
 [CreateAssetMenu(fileName = "New Card", menuName = "Card")]
@@ -26,6 +28,10 @@ public class Card : ScriptableObject
     public int level;
 
     public bool isInitialised = false;
+
+    public GameObject associatedButton;
+
+    public RuntimeAnimatorController animatorController;
 
     // Constructor to initialize a card with its base stats and random IVs
     public void InitialiseCard()
@@ -61,6 +67,11 @@ public class Card : ScriptableObject
                 baseHealth = 40;
                 baseHitSpeed = 0.5f;
                 break;
+            case UnitType.Blank:
+                baseAttack = 0;
+                baseHealth = 0;
+                baseHitSpeed = 0;
+                break;
         }
         if (level == 0)
         {
@@ -88,8 +99,25 @@ public class Card : ScriptableObject
         baseAttack += baseAttack + (level - 1) * 2;
         baseHealth += baseHealth + (level - 1) * 2;
         baseHitSpeed += baseHitSpeed + (level - 1) * 2;
+        associatedButton.GetComponent<InventoryButtons>().UpdateButton();
         // Optional: Adjust IVs or base stats based on level
     }
+
+
+    public void CopyCard(Card other)
+    {
+        cardName = other.cardName;
+        uniqueID = other.uniqueID;
+        artwork = other.artwork;
+        unitType = other.unitType;
+        baseAttack = other.baseAttack;
+        baseHealth = other.baseHealth;
+        baseHitSpeed = other.baseHitSpeed;
+        attackIV = other.attackIV;
+        healthIV = other.healthIV;
+        level = other.level;
+        associatedButton = other.associatedButton;
+}
 }
 
 [System.Serializable]
@@ -106,6 +134,7 @@ public class CardData
     public int healthIV; // Additional stat points for health
     public float hitSpeedIV; // Additional stat points for hit speed
     public int level;
+    public GameObject associatedButton;
 
     public CardData(Card card)
     {
@@ -120,5 +149,7 @@ public class CardData
         healthIV = card.healthIV;
         hitSpeedIV = card.hitSpeedIV;
         level = card.level;
+        associatedButton = card.associatedButton;
     }
+
 }

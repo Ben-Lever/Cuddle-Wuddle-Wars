@@ -9,15 +9,18 @@ TagManager:
   - enemyPlush
   - PlayerWeapon
   - EnemyWeapon
+  - playerStore
+  - enemyStore
+  - CardManager
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - dropped fluff
   - Water
   - UI
-  - 
-  - 
+  - playerPlush
+  - enemyPlush
   - 
   - 
   - 
