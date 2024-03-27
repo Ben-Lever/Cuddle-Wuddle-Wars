@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemyPlush : MonoBehaviour
 {
+    public int damageValue;
     public void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("playerPlush"))
@@ -11,7 +12,7 @@ public class EnemyPlush : MonoBehaviour
             var healthComponent = collision.gameObject.GetComponent<PlushHealth>();
             if (healthComponent != null)
             {
-                healthComponent.TakeDamage(1); //put amount of damage they will cause here
+                healthComponent.TakeDamage(damageValue); //put amount of damage they will cause here
             }
         }
 
@@ -20,7 +21,7 @@ public class EnemyPlush : MonoBehaviour
             var healthComponent = collision.gameObject.GetComponent<StoreHealth>();
             if (healthComponent != null)
             {
-                healthComponent.TakeDamage(1); //put amount of damage they deal here
+                healthComponent.TakeDamage(damageValue); //put amount of damage they deal here
             }
         }
     }

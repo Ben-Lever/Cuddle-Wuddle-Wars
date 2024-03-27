@@ -31,7 +31,7 @@ public class Card : ScriptableObject
 
     public GameObject associatedButton;
 
-    public AnimatorController animatorController;
+    public RuntimeAnimatorController animatorController;
 
     // Constructor to initialize a card with its base stats and random IVs
     public void InitialiseCard()
@@ -53,19 +53,19 @@ public class Card : ScriptableObject
         switch (unitType)
         {
             case UnitType.Tank:
-                baseAttack = 5;
-                baseHealth = 100;
-                baseHitSpeed = 1.5f;
+                baseAttack = 2;
+                baseHealth = 3;
+                baseHitSpeed = 0.5f;
                 break;
             case UnitType.Support:
-                baseAttack = 3;
-                baseHealth = 60;
-                baseHitSpeed = 1.0f;
+                baseAttack = 1;
+                baseHealth = 3;
+                baseHitSpeed = 1.5f;
                 break;
             case UnitType.Damage:
-                baseAttack = 10;
-                baseHealth = 40;
-                baseHitSpeed = 0.5f;
+                baseAttack = 3;
+                baseHealth = 2;
+                baseHitSpeed = 1.0f;
                 break;
             case UnitType.Blank:
                 baseAttack = 0;
@@ -82,8 +82,8 @@ public class Card : ScriptableObject
     void GenerateRandomIVs()
     {
         // Generate random additional stat points
-        attackIV = Random.Range(0, 5); // Temp range
-        healthIV = Random.Range(0, 10); // Temp range
+        attackIV = Random.Range(0, 2); // Temp range
+        healthIV = Random.Range(0, 2); // Temp range
         hitSpeedIV = Random.Range(0f, 0.5f); // Temp range
     }
 

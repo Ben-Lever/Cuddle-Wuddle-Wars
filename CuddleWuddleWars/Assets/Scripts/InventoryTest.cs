@@ -14,11 +14,13 @@ public class InventoryTest : MonoBehaviour
 
     public bool isInventoryOpen;
 
+    public ToolTip toolTip;
     public void UpdateInventoryCardButtons(Card card)
     {
         GameObject newButton = Instantiate(buttonPrefab, buttonParent);
         newButton.GetComponent<InventoryButtons>().cardInfo = card;
         newButton.GetComponent<InventoryButtons>().obj = this.gameObject;
+        newButton.GetComponent<InventoryButtons>().toolTip = toolTip;
 
         card.associatedButton = newButton;
 
