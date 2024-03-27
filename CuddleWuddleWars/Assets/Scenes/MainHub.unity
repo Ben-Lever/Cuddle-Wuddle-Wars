@@ -3215,7 +3215,7 @@ GameObject:
   - component: {fileID: 425638760}
   m_Layer: 5
   m_Name: Full Menu
-  m_TagString: Untagged
+  m_TagString: InventoryUIManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16170,7 +16170,7 @@ GameObject:
   - component: {fileID: 1912951179}
   m_Layer: 5
   m_Name: CardsInDeck
-  m_TagString: Untagged
+  m_TagString: PlayerDeck
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

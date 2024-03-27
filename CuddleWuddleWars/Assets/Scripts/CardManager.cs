@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 using JetBrains.Annotations;
+using UnityEngine.SceneManagement;
 
 public class CardManager : MonoBehaviour
 {
@@ -33,6 +34,10 @@ public class CardManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+       StartCardManager();
+    }
+    public void StartCardManager()
+    {
         savePath = Path.Combine(Application.persistentDataPath, "deck.json");
         InstantiateDeck();
 
@@ -51,9 +56,9 @@ public class CardManager : MonoBehaviour
                 if (script != null && playerDeckList.Count <= currentDeck.Count)
                 {
                     // Since playerDeckList has just been added to, its count reflects the next index.
-                    
+
                     script.cardInfo = currentDeck[playerDeckList.Count - 1];
-                    
+
                 }
             }
 
@@ -65,7 +70,7 @@ public class CardManager : MonoBehaviour
                 InventoryUIManager.GetComponent<InventoryTest>().UpdateInventoryCardButtons(card);
             }
         }
-        if (PlayerDeck != null )
+        if (PlayerDeck != null)
         {
             //int i = 0;
             foreach (Transform child in PlayerDeck.transform)
@@ -132,6 +137,33 @@ public class CardManager : MonoBehaviour
         if (File.Exists(savePath))
         {
             string json = File.ReadAllText(savePath);
+            Serialization<List<CardData>> deckData = JsonUtility.FromJson<Serialization<List<CardData>>>(json);
+
+            TotalCardList.Clear(); // Clear the list
+
+            foreach (var cardData in deckData.data)
+            {
+                Card newCardInstance = ScriptableObject.CreateInstance<Card>();
+                JsonUtility.FromJsonOverwrite(JsonUtility.ToJson(cardData), newCardInstance);
+                TotalCardList.Add(newCardInstance);
+                // You might need to update any UI or game elements that depend on TotalCardList here
+            }
+
+            Debug.Log("Deck loaded from " + savePath);
+            foreach (Card card in TotalCardList)
+            {
+                Debug.Log(card.cardName);
+            }
+            DeckManager();
+        }
+        else
+        {
+            Debug.LogError("Save file not found.");
+        }
+        /*
+        if (File.Exists(savePath))
+        {
+            string json = File.ReadAllText(savePath);
             // Deserialize the JSON back to the list of card data objects
             Serialization<List<CardData>> deckData = JsonUtility.FromJson<Serialization<List<CardData>>>(json);
 
@@ -153,17 +185,6 @@ public class CardManager : MonoBehaviour
                 }
             }
             Debug.Log("Deck loaded from " + savePath);
-        }
-        else
-        {
-            Debug.LogError("Save file not found.");
-        }
-        /*
-        if (File.Exists(savePath))
-        {
-            string json = File.ReadAllText(savePath);
-            JsonUtility.FromJsonOverwrite(json, currentCard);
-            Debug.Log("Card loaded from " + savePath);
         }
         else
         {
@@ -303,6 +324,37 @@ public class CardManager : MonoBehaviour
         }
 
     }
+    /*
+    void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+    /*
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        if (scene.name == "MainHub")
+        {
+            //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            bool test = false;
+            if (!PlayerDeck && test == false)
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+                test= true;
+                /*
+                PlayerDeck = GameObject.FindWithTag("PlayerDeck");
+                InventoryUIManager = GameObject.FindWithTag("InventoryUIManager");
+                StartCardManager();
+                
+            }
+            
+        }
+    }
+
     /*
     public static CardManager Instance { get; private set; }
     // A Dictionary to hold all cards with their unique ID as the key

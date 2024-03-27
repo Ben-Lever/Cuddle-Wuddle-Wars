@@ -12,6 +12,8 @@ TagManager:
   - playerStore
   - enemyStore
   - CardManager
+  - PlayerDeck
+  - InventoryUIManager
   layers:
   - Default
   - TransparentFX
