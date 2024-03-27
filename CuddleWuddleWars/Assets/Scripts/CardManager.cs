@@ -65,21 +65,21 @@ public class CardManager : MonoBehaviour
                 InventoryUIManager.GetComponent<InventoryTest>().UpdateInventoryCardButtons(card);
             }
         }
-        if (PlayerDeck != null )/////// Commentted on sun 25/5
+        if (PlayerDeck != null )
         {
-            int i = 0;
+            //int i = 0;
             foreach (Transform child in PlayerDeck.transform)
             {
                 playerDeckList.Add(child.gameObject);
-                Debug.Log("PlayerDeckList" + gameObject.name);
-                cardObjectScript = child.GetComponent<CardObjectScript>();
-                if (cardObjectScript != null)
+                Debug.Log("PlayerDeckList" + child.gameObject.name);
+                //cardObjectScript = child.GetComponent<CardObjectScript>();//////////////////////////////Commented 27/03
+                /*if (cardObjectScript != null)
                 {
                     
                     cardObjectScript = child.gameObject.GetComponent<CardObjectScript>();
-                    cardObjectScript.cardInfo = currentDeck[i];
+                    //cardObjectScript.cardInfo = currentDeck[i];
                     i++;
-                }
+                }*/
             }
             foreach (var CARD in currentDeck)
             {
@@ -87,6 +87,7 @@ public class CardManager : MonoBehaviour
             }
         }
         DeckManager();
+        StarterDeck();
     }
 
     public void InstantiateDeck()
@@ -195,6 +196,27 @@ public class CardManager : MonoBehaviour
         DeckManager();
     }
 
+    public void StarterDeck()
+    {
+        //loops the second loop 3 times, resulting in nine cards in the order of 1,2,3,1,2,3,1,2,3
+        for (int j = 0; j < 3; j++)
+        {
+            for (int i = 0; i < 3; i++)
+            {
+                Card selectedTemplate = currentDeckTemplate[i];
+                Card newCardInstance = Instantiate(selectedTemplate);
+                if (newCardInstance.isInitialised == false)
+                {
+                    newCardInstance.InitialiseCard();
+                }
+                TotalCardList.Add(newCardInstance);
+                InventoryUIManager.GetComponent<InventoryTest>().UpdateInventoryCardButtons(newCardInstance);
+                DeckManager();
+                Debug.Log(newCardInstance.cardName + "was instantiated");
+            }
+        }
+        
+    }
     public void DeckManager()
     {
         // Ensure the deck has less than 4 cards and attempt to fill it up
