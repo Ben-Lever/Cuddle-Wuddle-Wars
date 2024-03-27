@@ -3021,7 +3021,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fluffPrefab: {fileID: 2062954291709943400, guid: 66fc8c8d998ea204a91cc8351f673eee, type: 3}
-  fluffInterval: 6.12
+  fluffInterval: 4.8
   spawnPoints:
   - {fileID: 1967179270}
   - {fileID: 1985080576}
@@ -3413,7 +3413,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fluffPrefab: {fileID: 5324972373124012819, guid: 2f9dce006df4a044b94cb2a442d85804, type: 3}
-  fluffInterval: 3.45
+  fluffInterval: 1.5
   spawnPoints:
   - {fileID: 1625513751}
 --- !u!4 &985547365
@@ -7247,6 +7247,18 @@ PrefabInstance:
       value: playerStore
       objectReference: {fileID: 0}
     - target: {fileID: 6333959013851602110, guid: e85d9c4acab40604eaefa2267630a635, type: 3}
+      propertyPath: life1
+      value: 
+      objectReference: {fileID: 723802887}
+    - target: {fileID: 6333959013851602110, guid: e85d9c4acab40604eaefa2267630a635, type: 3}
+      propertyPath: life2
+      value: 
+      objectReference: {fileID: 431918545}
+    - target: {fileID: 6333959013851602110, guid: e85d9c4acab40604eaefa2267630a635, type: 3}
+      propertyPath: life3
+      value: 
+      objectReference: {fileID: 1939084106}
+    - target: {fileID: 6333959013851602110, guid: e85d9c4acab40604eaefa2267630a635, type: 3}
       propertyPath: gameOverCanvas
       value: 
       objectReference: {fileID: 557944400}
@@ -7303,6 +7315,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -4102633766941742397, guid: c8e4f760fd1bf1a4f91ea7b2c6c94573, type: 3}
+      propertyPath: life1
+      value: 
+      objectReference: {fileID: 482903748}
+    - target: {fileID: -4102633766941742397, guid: c8e4f760fd1bf1a4f91ea7b2c6c94573, type: 3}
+      propertyPath: life2
+      value: 
+      objectReference: {fileID: 879478113}
+    - target: {fileID: -4102633766941742397, guid: c8e4f760fd1bf1a4f91ea7b2c6c94573, type: 3}
+      propertyPath: life3
+      value: 
+      objectReference: {fileID: 433600001}
     - target: {fileID: -4102633766941742397, guid: c8e4f760fd1bf1a4f91ea7b2c6c94573, type: 3}
       propertyPath: gameOverCanvas
       value: 
