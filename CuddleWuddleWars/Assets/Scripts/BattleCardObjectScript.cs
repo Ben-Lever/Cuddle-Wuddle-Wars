@@ -18,9 +18,17 @@ public class BattleCardObjectScript : MonoBehaviour
     public int plushCost = 1;
 
     public Transform[] spawnPoints; // Array of spawn points
-    // Start is called before the first frame update
+
+    public float spawnCooldown = 2f;
+    private float cooldownTimer = 0f;
+    private bool isCooldownActive = false;
+    private SpriteRenderer spriteRenderer;
+    private Color originalColor;
+
     void Start()
     {
+        spriteRenderer = SpriteRendChild.GetComponent<SpriteRenderer>(); // Ensure SpriteRendChild is the correct GameObject
+        originalColor = spriteRenderer.color;
         if (cardInfo.isInitialised == false)
         {
             Debug.Log("Starting Card Initialisation");
@@ -33,6 +41,23 @@ public class BattleCardObjectScript : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        if (isCooldownActive)
+        {
+            cooldownTimer -= Time.deltaTime;
+
+            float lerp = Mathf.Clamp01((spawnCooldown - cooldownTimer) / spawnCooldown);
+            spriteRenderer.color = Color.Lerp(Color.grey, originalColor, lerp);
+
+            if (cooldownTimer <= 0f)
+            {
+                isCooldownActive = false;
+                spriteRenderer.color = originalColor;
+                Debug.Log("Cooldown finished. You can spawn plushes again.");
+            }
+        }
+    }
     public void UpdateCardInfo()
     {
         cardWriting = "LVL: " + cardInfo.level;
@@ -69,10 +94,23 @@ public class BattleCardObjectScript : MonoBehaviour
     }
     void SpawnPlush()
     {
-        // Implement your logic to spawn a plush at a chosen spawn point
-        int randomSpawnIndex = Random.Range(0, spawnPoints.Length);
-        GameObject instance = Instantiate(plushPrefab, spawnPoints[randomSpawnIndex].position, Quaternion.identity);
-        instance.GetComponent<PlaceholderPlushScript>().PrefabStats(cardInfo);
+        if(!isCooldownActive)
+        {
+            // Implement your logic to spawn a plush at a chosen spawn point
+            int randomSpawnIndex = Random.Range(0, spawnPoints.Length);
+            GameObject instance = Instantiate(plushPrefab, spawnPoints[randomSpawnIndex].position, Quaternion.identity);
+            instance.GetComponent<PlaceholderPlushScript>().PrefabStats(cardInfo);
+            
+            spriteRenderer.color = new Color(0.10f, 0.10f, 0.10f, 1);
+
+            isCooldownActive = true;
+            cooldownTimer = spawnCooldown;
+        }
+        else
+        {
+            Debug.Log("Still on cooldown. Wait for it to finish.");
+        }
+
     }
     // Update is called once per frame
     public void SetIndex(int index)
