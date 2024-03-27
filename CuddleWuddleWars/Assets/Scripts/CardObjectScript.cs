@@ -2,8 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
-public class CardObjectScript : MonoBehaviour
+public class CardObjectScript : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
 
     public GameObject SpriteRendChild;
@@ -12,6 +14,8 @@ public class CardObjectScript : MonoBehaviour
     public string cardWriting;
 
     public GameObject InventoryCanvas;
+
+    public ToolTip toolTip;
 
     /*////////////////////////////////////////// Kelecia's Scripts
     public GameObject plushPrefab; //place plush card here
@@ -23,7 +27,7 @@ public class CardObjectScript : MonoBehaviour
 
     private void Start()
     {
-        
+        //toolTip = GameObject.Find("ToolTip").GetComponent<ToolTip>();
 
         if (cardInfo.isInitialised == false)
         {
@@ -172,4 +176,18 @@ public class CardObjectScript : MonoBehaviour
         Instantiate(plushPrefab, spawnPoints[randomSpawnIndex].position, Quaternion.identity);
     }
     */
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        Debug.Log("Mouse Entered");
+        if(this.cardInfo != null)
+        {
+            toolTip.GenerateToolTip(this.cardInfo);
+        }
+    }
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        Debug.Log("Mouse Exited");
+        toolTip.gameObject.SetActive(false);
+    }
 }

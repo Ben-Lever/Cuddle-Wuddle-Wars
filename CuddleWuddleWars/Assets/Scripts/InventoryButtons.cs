@@ -2,11 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class InventoryButtons : MonoBehaviour
+public class InventoryButtons : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     public Card cardInfo;
     public GameObject obj;
+    public ToolTip toolTip;
     public void SwapCard()
     {
         var toBeSwapped = CardManager.playerDeckList[CardManager.selectedCard];
@@ -23,4 +25,17 @@ public class InventoryButtons : MonoBehaviour
         buttonText.text = $"{cardInfo.cardName} Lvl {cardInfo.level}";
     }
 
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        Debug.Log("Mouse Entered");
+        if (this.cardInfo != null)
+        {
+            toolTip.GenerateToolTip(this.cardInfo);
+        }
+    }
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        Debug.Log("Mouse Exited");
+        toolTip.gameObject.SetActive(false);
+    }
 }
