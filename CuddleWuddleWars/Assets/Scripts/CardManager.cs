@@ -34,10 +34,16 @@ public class CardManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-       StartCardManager();
+
+        if (SceneManager.GetActiveScene().name != "battlescene")////////////////////////////////////////////////////
+        {
+            StartCardManager();
+        }
+       
     }
     public void StartCardManager()
     {
+        Debug.Log("Starting CardManager");
         savePath = Path.Combine(Application.persistentDataPath, "deck.json");
         InstantiateDeck();
 
@@ -324,7 +330,7 @@ public class CardManager : MonoBehaviour
         }
 
     }
-    /*
+    
     void OnEnable()
     {
         SceneManager.sceneLoaded += OnSceneLoaded;
@@ -334,26 +340,43 @@ public class CardManager : MonoBehaviour
     {
         SceneManager.sceneLoaded -= OnSceneLoaded;
     }
-    /*
+    
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        if (scene.name == "MainHub")
+        if (scene.name != "battlescene")
         {
             //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-            bool test = false;
-            if (!PlayerDeck && test == false)
+            //bool test = false;
+            if (!PlayerDeck)
             {
-                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-                test= true;
-                /*
+                //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+                //test= true;
+                
                 PlayerDeck = GameObject.FindWithTag("PlayerDeck");
                 InventoryUIManager = GameObject.FindWithTag("InventoryUIManager");
-                StartCardManager();
+                //StartCardManager();
                 
             }
             
         }
     }
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     /*
     public static CardManager Instance { get; private set; }

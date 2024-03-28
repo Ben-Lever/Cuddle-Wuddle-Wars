@@ -44,4 +44,14 @@ public class SceneLoader : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().name); 
         
     }
+
+    /*
+    private void Update()
+    {
+        if (SceneManager.GetActiveScene().name == "battlescene")
+        {
+            Debug.Log("battlescene test");
+        }
+    }
+    */
 }
