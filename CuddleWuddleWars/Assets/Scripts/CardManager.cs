@@ -355,7 +355,70 @@ public class CardManager : MonoBehaviour
                 PlayerDeck = GameObject.FindWithTag("PlayerDeck");
                 InventoryUIManager = GameObject.FindWithTag("InventoryUIManager");
                 //StartCardManager();
-                
+
+                //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+                //Debug.Log("Starting CardManager");
+                savePath = Path.Combine(Application.persistentDataPath, "deck.json");
+                //InstantiateDeck();
+
+                if (PlayerDeck != null)
+                {
+                    // Clear the list to make sure it's empty before adding new items.
+                    playerDeckList.Clear();
+
+                    foreach (Transform child in PlayerDeck.transform)
+                    {
+                        playerDeckList.Add(child.gameObject);
+
+                        // You should only get the component once per child.
+                        var script = child.GetComponent<CardObjectScript>();
+                        script.SetIndex(playerDeckList.Count - 1);
+                        if (script != null && playerDeckList.Count <= currentDeck.Count)
+                        {
+                            // Since playerDeckList has just been added to, its count reflects the next index.
+
+                            script.cardInfo = currentDeck[playerDeckList.Count - 1];
+
+                        }
+                    }
+
+                    // Ensure the TotalCardList is updated only after all operations above.
+                    /*
+                    TotalCardList.Clear(); // Clear it first to avoid duplicates if Awake() runs multiple times for any reason.
+                    foreach (var card in currentDeck)
+                    {
+                        TotalCardList.Add(card);
+                        InventoryUIManager.GetComponent<InventoryTest>().UpdateInventoryCardButtons(card);
+                    }
+                    */
+                }
+                if (PlayerDeck != null)
+                {
+                    //int i = 0;
+                    foreach (Transform child in PlayerDeck.transform)
+                    {
+                        playerDeckList.Add(child.gameObject);
+                        Debug.Log("PlayerDeckList" + child.gameObject.name);
+                        //cardObjectScript = child.GetComponent<CardObjectScript>();//////////////////////////////Commented 27/03
+                        /*if (cardObjectScript != null)
+                        {
+
+                            cardObjectScript = child.gameObject.GetComponent<CardObjectScript>();
+                            //cardObjectScript.cardInfo = currentDeck[i];
+                            i++;
+                        }*/
+                    }
+                    /*
+                    foreach (var CARD in currentDeck)
+                    {
+                        TotalCardList.Add(CARD);
+                    }
+                    */
+                }
+                DeckManager();
+                //StarterDeck();
             }
             
         }
