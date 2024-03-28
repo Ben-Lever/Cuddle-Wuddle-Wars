@@ -47,8 +47,9 @@ public class StoreHealth : MonoBehaviour
         }
 
         if (currentHealth < 0)
-        {//anything you want to happen when they lose here
-         //Time.timeScale = 0;
+        {
+            //when this is not commented out the audio works fine but freezes game when it loads second time. 
+         Time.timeScale = 0;
 
             if (audioSource != null && gameOverSound != null)
             {

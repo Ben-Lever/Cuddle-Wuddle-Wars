@@ -14,6 +14,9 @@ public class SceneLoader : MonoBehaviour
     }
     public void BackToMenu ()
     {
+        //fixed freeze problem on second load
+        Time.timeScale = 1;
+
         SceneManager.LoadScene("MainHub");
         //CardManager.Instance.StartCardManager();
     }
