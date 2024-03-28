@@ -9,6 +9,8 @@ public class StoreHealth : MonoBehaviour
 
     public GameObject gameOverCanvas;
 
+    public AudioClip gameOverSound;
+    private AudioSource audioSource;
 
     public GameObject life1;
     public GameObject life2;
@@ -20,6 +22,8 @@ public class StoreHealth : MonoBehaviour
         life1.SetActive(true);
         life2.SetActive(true);
         life3.SetActive(true);
+
+        audioSource = GetComponent<AudioSource>();
     }
 
     public void TakeDamage(int amount)
@@ -45,6 +49,7 @@ public class StoreHealth : MonoBehaviour
         if (currentHealth < 0)
         {//anything you want to happen when they lose here
             //Time.timeScale = 0;
+            audioSource.Play();
             gameOverCanvas.SetActive(true);
             Debug.Log("this store lost");
         }
