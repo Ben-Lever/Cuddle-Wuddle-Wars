@@ -48,8 +48,14 @@ public class StoreHealth : MonoBehaviour
 
         if (currentHealth < 0)
         {//anything you want to happen when they lose here
-            //Time.timeScale = 0;
-            audioSource.Play();
+         //Time.timeScale = 0;
+
+            if (audioSource != null && gameOverSound != null)
+            {
+                
+                audioSource.Play();
+            }
+
             gameOverCanvas.SetActive(true);
             Debug.Log("this store lost");
         }
