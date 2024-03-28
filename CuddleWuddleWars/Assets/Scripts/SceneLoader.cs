@@ -28,6 +28,10 @@ public class SceneLoader : MonoBehaviour
         //soundPlayer.Play();
     }
 
+    public void Tutorial()
+    {
+        SceneManager.LoadScene("tutorial");
+    }
 
     public void PauseGame()
     {
