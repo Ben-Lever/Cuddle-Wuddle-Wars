@@ -3,24 +3,40 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 using JetBrains.Annotations;
+using UnityEngine.SceneManagement;
 
 public class CardManager : MonoBehaviour
 {
-    public static CardManager instance;
+    public static CardManager Instance { get; private set; }
 
     // A path to save your card data
     private string savePath;
     public Card[] currentDeckTemplate;
-    public List<Card> currentDeck; // This will hold your deck of cards
+    public List<Card> currentDeck; 
     public GameObject PlayerDeck;
     public static List<GameObject> playerDeckList = new List<GameObject>();
     public CardObjectScript cardObjectScript;
     public static List<Card> TotalCardList = new List<Card>();
     public GameObject InventoryUIManager;
     public static int selectedCard;
+
+    public static List<Card> TrueCurrentDeck;
     
 
     private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject); // Optional: persist across scenes
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+       StartCardManager();
+    }
+    public void StartCardManager()
     {
         savePath = Path.Combine(Application.persistentDataPath, "deck.json");
         InstantiateDeck();
@@ -40,9 +56,9 @@ public class CardManager : MonoBehaviour
                 if (script != null && playerDeckList.Count <= currentDeck.Count)
                 {
                     // Since playerDeckList has just been added to, its count reflects the next index.
-                    
+
                     script.cardInfo = currentDeck[playerDeckList.Count - 1];
-                    
+
                 }
             }
 
@@ -54,28 +70,29 @@ public class CardManager : MonoBehaviour
                 InventoryUIManager.GetComponent<InventoryTest>().UpdateInventoryCardButtons(card);
             }
         }
-        /*if (PlayerDeck != null )
+        if (PlayerDeck != null)
         {
-            int i = 0;
+            //int i = 0;
             foreach (Transform child in PlayerDeck.transform)
             {
                 playerDeckList.Add(child.gameObject);
-                Debug.Log("PlayerDeckList" + gameObject.name);
-                cardObjectScript = child.GetComponent<CardObjectScript>();
-                if (cardObjectScript != null)
+                Debug.Log("PlayerDeckList" + child.gameObject.name);
+                //cardObjectScript = child.GetComponent<CardObjectScript>();//////////////////////////////Commented 27/03
+                /*if (cardObjectScript != null)
                 {
                     
                     cardObjectScript = child.gameObject.GetComponent<CardObjectScript>();
-                    cardObjectScript.cardInfo = currentDeck[i];
+                    //cardObjectScript.cardInfo = currentDeck[i];
                     i++;
-                }
+                }*/
             }
             foreach (var CARD in currentDeck)
             {
                 TotalCardList.Add(CARD);
             }
-        }*/
+        }
         DeckManager();
+        StarterDeck();
     }
 
     public void InstantiateDeck()
@@ -120,6 +137,33 @@ public class CardManager : MonoBehaviour
         if (File.Exists(savePath))
         {
             string json = File.ReadAllText(savePath);
+            Serialization<List<CardData>> deckData = JsonUtility.FromJson<Serialization<List<CardData>>>(json);
+
+            TotalCardList.Clear(); // Clear the list
+
+            foreach (var cardData in deckData.data)
+            {
+                Card newCardInstance = ScriptableObject.CreateInstance<Card>();
+                JsonUtility.FromJsonOverwrite(JsonUtility.ToJson(cardData), newCardInstance);
+                TotalCardList.Add(newCardInstance);
+                // You might need to update any UI or game elements that depend on TotalCardList here
+            }
+
+            Debug.Log("Deck loaded from " + savePath);
+            foreach (Card card in TotalCardList)
+            {
+                Debug.Log(card.cardName);
+            }
+            DeckManager();
+        }
+        else
+        {
+            Debug.LogError("Save file not found.");
+        }
+        /*
+        if (File.Exists(savePath))
+        {
+            string json = File.ReadAllText(savePath);
             // Deserialize the JSON back to the list of card data objects
             Serialization<List<CardData>> deckData = JsonUtility.FromJson<Serialization<List<CardData>>>(json);
 
@@ -141,17 +185,6 @@ public class CardManager : MonoBehaviour
                 }
             }
             Debug.Log("Deck loaded from " + savePath);
-        }
-        else
-        {
-            Debug.LogError("Save file not found.");
-        }
-        /*
-        if (File.Exists(savePath))
-        {
-            string json = File.ReadAllText(savePath);
-            JsonUtility.FromJsonOverwrite(json, currentCard);
-            Debug.Log("Card loaded from " + savePath);
         }
         else
         {
@@ -184,6 +217,27 @@ public class CardManager : MonoBehaviour
         DeckManager();
     }
 
+    public void StarterDeck()
+    {
+        //loops the second loop 3 times, resulting in nine cards in the order of 1,2,3,1,2,3,1,2,3
+        for (int j = 0; j < 3; j++)
+        {
+            for (int i = 0; i < 3; i++)
+            {
+                Card selectedTemplate = currentDeckTemplate[i];
+                Card newCardInstance = Instantiate(selectedTemplate);
+                if (newCardInstance.isInitialised == false)
+                {
+                    newCardInstance.InitialiseCard();
+                }
+                TotalCardList.Add(newCardInstance);
+                InventoryUIManager.GetComponent<InventoryTest>().UpdateInventoryCardButtons(newCardInstance);
+                DeckManager();
+                Debug.Log(newCardInstance.cardName + "was instantiated");
+            }
+        }
+        
+    }
     public void DeckManager()
     {
         // Ensure the deck has less than 4 cards and attempt to fill it up
@@ -236,6 +290,7 @@ public class CardManager : MonoBehaviour
                 script.UpdateCardInfo();
             }
         }
+        //UpdateTrueCurrentDeck();/////////////////////////////////////////////////////////////
     }
 
     private void UpdateDeckVisuals()
@@ -257,7 +312,49 @@ public class CardManager : MonoBehaviour
                 //playerDeckList[i].SetActive(false);////////////////////////////////////
             }
         }
+        //UpdateTrueCurrentDeck();/////////////////////////////////////////////////////////////////
     }
+
+    public void SwapCardInDeck(int cardIndexToSwap, Card newCard)
+    {
+        if (cardIndexToSwap < currentDeck.Count)
+        {
+            currentDeck[cardIndexToSwap] = newCard;
+            
+        }
+
+    }
+    /*
+    void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+    /*
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        if (scene.name == "MainHub")
+        {
+            //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            bool test = false;
+            if (!PlayerDeck && test == false)
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+                test= true;
+                /*
+                PlayerDeck = GameObject.FindWithTag("PlayerDeck");
+                InventoryUIManager = GameObject.FindWithTag("InventoryUIManager");
+                StartCardManager();
+                
+            }
+            
+        }
+    }
+
     /*
     public static CardManager Instance { get; private set; }
     // A Dictionary to hold all cards with their unique ID as the key

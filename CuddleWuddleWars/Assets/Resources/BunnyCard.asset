@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ba7ca9cfb859adc45977bc4ec299c0d5, type: 3}
-  m_Name: TeddyBearCard
+  m_Name: BunnyCard
   m_EditorClassIdentifier: 
-  cardName: Teddy Bear
+  cardName: Bunny
   uniqueID: 
-  artwork: {fileID: -1729750150, guid: b13f1f48adeff6a45a5400440a2e1cb8, type: 3}
-  unitType: 0
+  artwork: {fileID: 21300000, guid: 0b12699cd6e94e246a712d1e928ff9f3, type: 3}
+  unitType: 1
   baseAttack: 0
   baseHealth: 0
   baseHitSpeed: 0
@@ -25,4 +25,4 @@ MonoBehaviour:
   level: 0
   isInitialised: 0
   associatedButton: {fileID: 0}
-  animatorController: {fileID: 9100000, guid: 9a197ae3f9888564bb13eca5193b97f5, type: 2}
+  animatorController: {fileID: 0}
