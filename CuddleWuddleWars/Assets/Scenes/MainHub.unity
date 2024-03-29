@@ -6301,7 +6301,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &812957680
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11945,6 +11945,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 8f2e45e7b7a068c42980730900cdb9da, type: 2}
   - {fileID: 11400000, guid: 520c083940645e14190d60c457d8c299, type: 2}
   - {fileID: 11400000, guid: 0bbbe01dc8c001f4db7169480ad4f25e, type: 2}
+  - {fileID: 11400000, guid: c1b2abf3f1162844fb8985bc813461bb, type: 2}
   currentDeck: []
   PlayerDeck: {fileID: 1912951178}
   cardObjectScript: {fileID: 0}

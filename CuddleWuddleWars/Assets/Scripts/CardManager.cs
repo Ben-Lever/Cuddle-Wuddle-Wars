@@ -225,10 +225,10 @@ public class CardManager : MonoBehaviour
 
     public void StarterDeck()
     {
-        //loops the second loop 3 times, resulting in nine cards in the order of 1,2,3,1,2,3,1,2,3
+        //loops the second loop 3 times, resulting in twelve cards in the order of 1,2,3,4,1,2,3,4,1,2,3,4
         for (int j = 0; j < 3; j++)
         {
-            for (int i = 0; i < 3; i++)
+            for (int i = 0; i < 4; i++)
             {
                 Card selectedTemplate = currentDeckTemplate[i];
                 Card newCardInstance = Instantiate(selectedTemplate);
