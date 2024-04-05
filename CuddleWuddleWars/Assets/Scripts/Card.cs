@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.Animations;
@@ -82,15 +83,16 @@ public class Card : ScriptableObject
     void GenerateRandomIVs()
     {
         // Generate random additional stat points
-        attackIV = Random.Range(0, 2); // Temp range
-        healthIV = Random.Range(0, 2); // Temp range
-        hitSpeedIV = Random.Range(0f, 0.5f); // Temp range
+        attackIV = UnityEngine.Random.Range(0, 2); // Temp range
+        healthIV = UnityEngine.Random.Range(0, 2); // Temp range
+        hitSpeedIV = UnityEngine.Random.Range(0f, 0.5f); // Temp range
     }
 
     // Method to calculate total stats, including IVs
     public int TotalAttack => baseAttack + attackIV;
     public int TotalHealth => baseHealth + healthIV;
-    public float TotalHitSpeed => baseHitSpeed + hitSpeedIV;
+    public float TotalHitSpeed => (float)Math.Round((baseHitSpeed + hitSpeedIV), 2);
+    
 
     // Method to upgrade card, potentially enhancing IVs or base stats
     public void UpgradeCard()
