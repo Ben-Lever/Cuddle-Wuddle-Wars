@@ -37,7 +37,6 @@ public class Card : ScriptableObject
     // Constructor to initialize a card with its base stats and random IVs
     public void InitialiseCard()
     {
-        
         //Card newCard = ScriptableObject.CreateInstance<Card>();
         //newCard.uniqueID = System.Guid.NewGuid().ToString();
         uniqueID = System.Guid.NewGuid().ToString();
@@ -45,7 +44,6 @@ public class Card : ScriptableObject
         AssignBaseStats();
         GenerateRandomIVs();
         isInitialised = true;
-        
     }
 
     void AssignBaseStats()
@@ -97,13 +95,44 @@ public class Card : ScriptableObject
     // Method to upgrade card, potentially enhancing IVs or base stats
     public void UpgradeCard()
     {
+        /*/////////////////////////////////////////////////////////////////////////////
         level++;
         baseAttack += baseAttack + (level - 1) * 2;
         baseHealth += baseHealth + (level - 1) * 2;
         baseHitSpeed += baseHitSpeed + (level - 1) * 2;
         associatedButton.GetComponent<InventoryButtons>().UpdateButton();
         // Optional: Adjust IVs or base stats based on level
+        */
+        // Increment level
+        level++;
+
+        // Simplified formula for stat increases
+        int attackIncrease = CalculateStatIncrease(baseAttack, attackIV);
+        int healthIncrease = CalculateStatIncrease(baseHealth, healthIV);
+        float hitSpeedIncrease = CalculateStatIncrease(baseHitSpeed, hitSpeedIV);
+
+        baseAttack += attackIncrease;
+        baseHealth += healthIncrease;
+        baseHitSpeed += hitSpeedIncrease;
+
+        // Assuming your InventoryButtons.UpdateButton() method refreshes UI correctly
+        if (associatedButton != null)
+            associatedButton.GetComponent<InventoryButtons>().UpdateButton();
     }
+    // Simplified method to calculate stat increase
+    int CalculateStatIncrease(int baseStat, int iv)
+    {
+        int statIncrease = (int)((baseStat + iv) * 0.1f); // Example: 10% increase per level
+        return statIncrease;
+    }
+
+    // Overloaded method for float stats like hitSpeed
+    float CalculateStatIncrease(float baseStat, float iv)
+    {
+        float statIncrease = (baseStat + iv) * 0.1f; // Example: 10% increase per level
+        return statIncrease;
+    }
+
 
 
     public void CopyCard(Card other)
