@@ -101,10 +101,7 @@ public class CardObjectScript : MonoBehaviour, IPointerEnterHandler, IPointerExi
         {
             child.GetComponent<BoxCollider2D>().enabled = false;
         }
-
-
-
-        /*////////////////////////////////////////// Kelecia's Scripts
+        /*/////////////////////  Kelecia's Scripts  ///////////////////// 
         //FluffCollector script attached to a GameObject in the scene
         FluffCollector fluffCollector = FindObjectOfType<FluffCollector>();
 
@@ -134,8 +131,8 @@ public class CardObjectScript : MonoBehaviour, IPointerEnterHandler, IPointerExi
         {
             child.GetComponent<BoxCollider2D>().enabled = false;
         }
-        
-        /*////////////////////////////////////////// Kelecia's Scripts
+
+        /*////////////////////  Kelecia's Scripts  //////////////////////
         //FluffCollector script attached to a GameObject in the scene
         FluffCollector fluffCollector = FindObjectOfType<FluffCollector>();
 
@@ -160,7 +157,7 @@ public class CardObjectScript : MonoBehaviour, IPointerEnterHandler, IPointerExi
         Debug.Log("this object's indes: " + Index);
     }
 
-    /*////////////////////////////////////////// Kelecia's Scripts
+    /*////////////////////  Kelecia's Scripts  //////////////////////
     void SpawnPlush()
     {
         // Implement your logic to spawn a plush at a chosen spawn point

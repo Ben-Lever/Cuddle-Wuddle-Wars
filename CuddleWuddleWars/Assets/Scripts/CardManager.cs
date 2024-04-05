@@ -28,21 +28,20 @@ public class CardManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject); // Optional: persist across scenes
+            DontDestroyOnLoad(gameObject); 
         }
         else
         {
             Destroy(gameObject);
         }
-
         if (SceneManager.GetActiveScene().name != "battlescene")////////////////////////////////////////////////////
         {
             StartCardManager();
         }
-       
     }
     public void StartCardManager()
     {
+        //Establish save path
         Debug.Log("Starting CardManager");
         savePath = Path.Combine(Application.persistentDataPath, "deck.json");
         InstantiateDeck();
@@ -78,7 +77,7 @@ public class CardManager : MonoBehaviour
         }
         if (PlayerDeck != null)
         {
-            //int i = 0;
+            
             foreach (Transform child in PlayerDeck.transform)
             {
                 playerDeckList.Add(child.gameObject);
@@ -104,9 +103,9 @@ public class CardManager : MonoBehaviour
     public void InstantiateDeck()
     {
         currentDeck.Clear();
-
         foreach (var cardTemplate in currentDeckTemplate)
         {
+            // Create clones of the scriptable objects //
             if (cardTemplate.unitType != UnitType.Blank)
             {
                 Debug.Log("Im being triggered");
@@ -114,7 +113,6 @@ public class CardManager : MonoBehaviour
                 newCardInstance.CopyCard(cardTemplate);
                 //currentDeck.Add(newCardInstance);
             }
-
         }
     }
 
