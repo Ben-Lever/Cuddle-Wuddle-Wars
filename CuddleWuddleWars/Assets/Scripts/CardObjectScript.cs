@@ -17,6 +17,8 @@ public class CardObjectScript : MonoBehaviour, IPointerEnterHandler, IPointerExi
 
     public ToolTip toolTip;
 
+    public GameObject BattleTabObject;
+
     /*////////////////////////////////////////// Kelecia's Scripts
     public GameObject plushPrefab; //place plush card here
     public int plushCost = 1;
@@ -50,26 +52,16 @@ public class CardObjectScript : MonoBehaviour, IPointerEnterHandler, IPointerExi
         SpriteRendChild.GetComponent<SpriteRenderer>().sprite = cardInfo.artwork;
         cardWriting = "LVL: " + cardInfo.level;
         TextChild.GetComponent<TextMeshPro>().text = cardWriting;
+        BattleTabObject.GetComponent<BattleMenuCard>().UpdateCardInfo();
     }
     
     public void UpdateCardInfo()
     {
-        /*
-        Debug.Log(cardInfo.cardName);
-        cardWriting =
-           cardInfo.cardName + "\n"
-           + cardInfo.uniqueID + "\n"
-           + "lvl " + cardInfo.level + " " + cardInfo.unitType + "\n"
-           + "Attack: " + cardInfo.TotalAttack + "\n"
-           + "Health: " + cardInfo.TotalHealth + "\n"
-           + "Hit Speed: " + cardInfo.TotalHitSpeed;
-        TextChild.GetComponent<TextMeshPro>().text = cardWriting;
-        SpriteRendChild.GetComponent<SpriteRenderer>().sprite = cardInfo.artwork;
-        */
 
         cardWriting = "LVL: " + cardInfo.level;
         TextChild.GetComponent<TextMeshPro>().text = cardWriting;
         SpriteRendChild.GetComponent<SpriteRenderer>().sprite = cardInfo.artwork;
+        BattleTabObject.GetComponent<BattleMenuCard>().UpdateCardInfo();
         //CardManager.instance.TrueCurrentDeck();
     }
 

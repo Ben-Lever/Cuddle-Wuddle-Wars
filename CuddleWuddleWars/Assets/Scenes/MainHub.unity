@@ -3375,7 +3375,7 @@ GameObject:
   m_Component:
   - component: {fileID: 397809808}
   - component: {fileID: 397809813}
-  - component: {fileID: 397809812}
+  - component: {fileID: 397809814}
   - component: {fileID: 397809811}
   - component: {fileID: 397809810}
   - component: {fileID: 397809809}
@@ -3490,24 +3490,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 6.989114, y: 10.02006}
   m_EdgeRadius: 0
---- !u!114 &397809812
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 397809807}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8159748200504304e8c5b239845236b6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SpriteRendChild: {fileID: 39107614}
-  TextChild: {fileID: 439300636}
-  cardInfo: {fileID: 11400000, guid: acc28f4126a8c6144b7054287a9e46b7, type: 2}
-  cardWriting: 
-  InventoryCanvas: {fileID: 1289974399}
-  toolTip: {fileID: 1414613062}
 --- !u!212 &397809813
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3560,6 +3542,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &397809814
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 397809807}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd57c4ee2c4447f4087f13080cf79044, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SpriteRendChild: {fileID: 39107614}
+  TextChild: {fileID: 439300636}
+  cardInfo: {fileID: 11400000, guid: acc28f4126a8c6144b7054287a9e46b7, type: 2}
+  cardWriting: 
+  InventoryCanvas: {fileID: 1289974399}
+  toolTip: {fileID: 1414613062}
+  ShelfObject: {fileID: 545288168}
 --- !u!1 &425638758
 GameObject:
   m_ObjectHideFlags: 0
@@ -4521,6 +4522,7 @@ MonoBehaviour:
   cardWriting: 
   InventoryCanvas: {fileID: 1289974399}
   toolTip: {fileID: 1414613062}
+  BattleTabObject: {fileID: 397809807}
 --- !u!212 &545288172
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6424,6 +6426,7 @@ MonoBehaviour:
   cardWriting: 
   InventoryCanvas: {fileID: 1289974399}
   toolTip: {fileID: 1414613062}
+  BattleTabObject: {fileID: 1133861258}
 --- !u!212 &776391929
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -9497,6 +9500,7 @@ MonoBehaviour:
   cardWriting: 
   InventoryCanvas: {fileID: 1289974399}
   toolTip: {fileID: 1414613062}
+  BattleTabObject: {fileID: 1939827948}
 --- !u!212 &1111235257
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -10158,7 +10162,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1133861259}
   - component: {fileID: 1133861264}
-  - component: {fileID: 1133861263}
+  - component: {fileID: 1133861265}
   - component: {fileID: 1133861262}
   - component: {fileID: 1133861261}
   - component: {fileID: 1133861260}
@@ -10273,24 +10277,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 6.989114, y: 10.02006}
   m_EdgeRadius: 0
---- !u!114 &1133861263
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1133861258}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8159748200504304e8c5b239845236b6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SpriteRendChild: {fileID: 2001314017}
-  TextChild: {fileID: 1387679078}
-  cardInfo: {fileID: 11400000, guid: acc28f4126a8c6144b7054287a9e46b7, type: 2}
-  cardWriting: 
-  InventoryCanvas: {fileID: 1289974399}
-  toolTip: {fileID: 1414613062}
 --- !u!212 &1133861264
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -10343,6 +10329,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1133861265
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1133861258}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd57c4ee2c4447f4087f13080cf79044, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SpriteRendChild: {fileID: 2001314017}
+  TextChild: {fileID: 1387679078}
+  cardInfo: {fileID: 11400000, guid: acc28f4126a8c6144b7054287a9e46b7, type: 2}
+  cardWriting: 
+  InventoryCanvas: {fileID: 1289974399}
+  toolTip: {fileID: 1414613062}
+  ShelfObject: {fileID: 776391925}
 --- !u!1 &1191677815
 GameObject:
   m_ObjectHideFlags: 0
@@ -13985,7 +13990,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1527347055}
   - component: {fileID: 1527347060}
-  - component: {fileID: 1527347059}
+  - component: {fileID: 1527347061}
   - component: {fileID: 1527347058}
   - component: {fileID: 1527347057}
   - component: {fileID: 1527347056}
@@ -14100,24 +14105,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 6.989114, y: 10.02006}
   m_EdgeRadius: 0
---- !u!114 &1527347059
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1527347054}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8159748200504304e8c5b239845236b6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SpriteRendChild: {fileID: 2090504367}
-  TextChild: {fileID: 533135001}
-  cardInfo: {fileID: 11400000, guid: acc28f4126a8c6144b7054287a9e46b7, type: 2}
-  cardWriting: 
-  InventoryCanvas: {fileID: 1289974399}
-  toolTip: {fileID: 1414613062}
 --- !u!212 &1527347060
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -14170,6 +14157,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1527347061
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1527347054}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd57c4ee2c4447f4087f13080cf79044, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SpriteRendChild: {fileID: 2090504367}
+  TextChild: {fileID: 533135001}
+  cardInfo: {fileID: 11400000, guid: acc28f4126a8c6144b7054287a9e46b7, type: 2}
+  cardWriting: 
+  InventoryCanvas: {fileID: 1289974399}
+  toolTip: {fileID: 1414613062}
+  ShelfObject: {fileID: 1698442576}
 --- !u!1 &1533621375
 GameObject:
   m_ObjectHideFlags: 0
@@ -15290,6 +15296,7 @@ MonoBehaviour:
   cardWriting: 
   InventoryCanvas: {fileID: 1289974399}
   toolTip: {fileID: 1414613062}
+  BattleTabObject: {fileID: 1527347054}
 --- !u!114 &1698442581
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17852,7 +17859,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1939827949}
   - component: {fileID: 1939827954}
-  - component: {fileID: 1939827953}
+  - component: {fileID: 1939827955}
   - component: {fileID: 1939827952}
   - component: {fileID: 1939827951}
   - component: {fileID: 1939827950}
@@ -17967,24 +17974,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 6.989114, y: 10.02006}
   m_EdgeRadius: 0
---- !u!114 &1939827953
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1939827948}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8159748200504304e8c5b239845236b6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SpriteRendChild: {fileID: 1240171416}
-  TextChild: {fileID: 701904569}
-  cardInfo: {fileID: 11400000, guid: acc28f4126a8c6144b7054287a9e46b7, type: 2}
-  cardWriting: 
-  InventoryCanvas: {fileID: 1289974399}
-  toolTip: {fileID: 1414613062}
 --- !u!212 &1939827954
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -18037,6 +18026,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1939827955
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1939827948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd57c4ee2c4447f4087f13080cf79044, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SpriteRendChild: {fileID: 1240171416}
+  TextChild: {fileID: 701904569}
+  cardInfo: {fileID: 11400000, guid: acc28f4126a8c6144b7054287a9e46b7, type: 2}
+  cardWriting: 
+  InventoryCanvas: {fileID: 1289974399}
+  toolTip: {fileID: 1414613062}
+  ShelfObject: {fileID: 1111235253}
 --- !u!1 &1953056080
 GameObject:
   m_ObjectHideFlags: 0

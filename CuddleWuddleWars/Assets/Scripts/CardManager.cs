@@ -242,7 +242,7 @@ public class CardManager : MonoBehaviour
                 Debug.Log(newCardInstance.cardName + "was instantiated");
             }
         }
-        
+        UpdateCardGameObjects();
     }
     public void DeckManager()
     {
