@@ -2378,7 +2378,7 @@ GameObject:
   - component: {fileID: 664925282}
   - component: {fileID: 664925281}
   m_Layer: 0
-  m_Name: Audio Source
+  m_Name: background music
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2396,7 +2396,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 87813cd92ea006b42833e66d3b340457, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.419
+  m_Volume: 0.32
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -5850,7 +5850,7 @@ Transform:
   m_GameObject: {fileID: 1408744122}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.1, y: -1.26, z: 2.8825371}
+  m_LocalPosition: {x: -4.1, y: -1.14, z: 2.8825371}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7549,6 +7549,14 @@ PrefabInstance:
       propertyPath: gameOverCanvas
       value: 
       objectReference: {fileID: 557944400}
+    - target: {fileID: 6333959013851602110, guid: e85d9c4acab40604eaefa2267630a635, type: 3}
+      propertyPath: backgroundMusic
+      value: 
+      objectReference: {fileID: 664925281}
+    - target: {fileID: 6333959013851602110, guid: e85d9c4acab40604eaefa2267630a635, type: 3}
+      propertyPath: backgroundMusicLowerVolume
+      value: 0.07
+      objectReference: {fileID: 0}
     - target: {fileID: 6380707948190826848, guid: e85d9c4acab40604eaefa2267630a635, type: 3}
       propertyPath: m_LocalPosition.x
       value: -7.41
@@ -7625,6 +7633,14 @@ PrefabInstance:
       propertyPath: gameOverCanvas
       value: 
       objectReference: {fileID: 886242058}
+    - target: {fileID: -4102633766941742397, guid: c8e4f760fd1bf1a4f91ea7b2c6c94573, type: 3}
+      propertyPath: backgroundMusic
+      value: 
+      objectReference: {fileID: 664925281}
+    - target: {fileID: -4102633766941742397, guid: c8e4f760fd1bf1a4f91ea7b2c6c94573, type: 3}
+      propertyPath: backgroundMusicLowerVolume
+      value: 0.07
+      objectReference: {fileID: 0}
     - target: {fileID: 305579230101865985, guid: c8e4f760fd1bf1a4f91ea7b2c6c94573, type: 3}
       propertyPath: m_Size.x
       value: 7.6426096

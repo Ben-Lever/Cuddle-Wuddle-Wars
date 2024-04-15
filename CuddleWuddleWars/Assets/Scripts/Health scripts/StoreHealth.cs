@@ -11,6 +11,8 @@ public class StoreHealth : MonoBehaviour
 
     public AudioClip gameOverSound;
     private AudioSource audioSource;
+    public AudioSource backgroundMusic; 
+    public float backgroundMusicLowerVolume = 0.5f;
 
     public GameObject life1;
     public GameObject life2;
@@ -50,6 +52,11 @@ public class StoreHealth : MonoBehaviour
         {
             //when this is not commented out the audio works fine but freezes game when it loads second time. 
          Time.timeScale = 0;
+
+            if (backgroundMusic != null)
+            {
+                backgroundMusic.volume = backgroundMusicLowerVolume; // Lower the background music volume
+            }
 
             if (audioSource != null && gameOverSound != null)
             {
