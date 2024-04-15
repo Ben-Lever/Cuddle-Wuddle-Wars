@@ -1,7 +1,11 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Animations;
 using UnityEngine;
+
+#if UNITY_EDITOR
+using UnityEditor.Animations;
+#endif
 
 public enum UnitType
 {
@@ -31,12 +35,11 @@ public class Card : ScriptableObject
 
     public GameObject associatedButton;
 
-    public AnimatorController animatorController;
+    public RuntimeAnimatorController animatorController;
 
     // Constructor to initialize a card with its base stats and random IVs
     public void InitialiseCard()
     {
-        
         //Card newCard = ScriptableObject.CreateInstance<Card>();
         //newCard.uniqueID = System.Guid.NewGuid().ToString();
         uniqueID = System.Guid.NewGuid().ToString();
@@ -44,7 +47,6 @@ public class Card : ScriptableObject
         AssignBaseStats();
         GenerateRandomIVs();
         isInitialised = true;
-        
     }
 
     void AssignBaseStats()
@@ -53,19 +55,19 @@ public class Card : ScriptableObject
         switch (unitType)
         {
             case UnitType.Tank:
-                baseAttack = 5;
-                baseHealth = 100;
-                baseHitSpeed = 1.5f;
+                baseAttack = 2;
+                baseHealth = 3;
+                baseHitSpeed = 0.5f;
                 break;
             case UnitType.Support:
-                baseAttack = 3;
-                baseHealth = 60;
-                baseHitSpeed = 1.0f;
+                baseAttack = 1;
+                baseHealth = 3;
+                baseHitSpeed = 1.5f;
                 break;
             case UnitType.Damage:
-                baseAttack = 10;
-                baseHealth = 40;
-                baseHitSpeed = 0.5f;
+                baseAttack = 3;
+                baseHealth = 2;
+                baseHitSpeed = 1.0f;
                 break;
             case UnitType.Blank:
                 baseAttack = 0;
@@ -82,26 +84,58 @@ public class Card : ScriptableObject
     void GenerateRandomIVs()
     {
         // Generate random additional stat points
-        attackIV = Random.Range(0, 5); // Temp range
-        healthIV = Random.Range(0, 10); // Temp range
-        hitSpeedIV = Random.Range(0f, 0.5f); // Temp range
+        attackIV = UnityEngine.Random.Range(0, 2); // Temp range
+        healthIV = UnityEngine.Random.Range(0, 2); // Temp range
+        hitSpeedIV = UnityEngine.Random.Range(0f, 0.5f); // Temp range
     }
 
     // Method to calculate total stats, including IVs
     public int TotalAttack => baseAttack + attackIV;
     public int TotalHealth => baseHealth + healthIV;
-    public float TotalHitSpeed => baseHitSpeed + hitSpeedIV;
+    public float TotalHitSpeed => (float)Math.Round((baseHitSpeed + hitSpeedIV), 2);
+    
 
     // Method to upgrade card, potentially enhancing IVs or base stats
     public void UpgradeCard()
     {
+        /*/////////////////////////////////////////////////////////////////////////////
         level++;
         baseAttack += baseAttack + (level - 1) * 2;
         baseHealth += baseHealth + (level - 1) * 2;
         baseHitSpeed += baseHitSpeed + (level - 1) * 2;
         associatedButton.GetComponent<InventoryButtons>().UpdateButton();
         // Optional: Adjust IVs or base stats based on level
+        */
+        // Increment level
+        level++;
+
+        // Simplified formula for stat increases
+        int attackIncrease = CalculateStatIncrease(baseAttack, attackIV);
+        int healthIncrease = CalculateStatIncrease(baseHealth, healthIV);
+        float hitSpeedIncrease = CalculateStatIncrease(baseHitSpeed, hitSpeedIV);
+
+        baseAttack += attackIncrease;
+        baseHealth += healthIncrease;
+        baseHitSpeed += hitSpeedIncrease;
+
+        // Assuming your InventoryButtons.UpdateButton() method refreshes UI correctly
+        if (associatedButton != null)
+            associatedButton.GetComponent<InventoryButtons>().UpdateButton();
     }
+    // Simplified method to calculate stat increase
+    int CalculateStatIncrease(int baseStat, int iv)
+    {
+        int statIncrease = (int)((baseStat + iv) * 0.1f); // Example: 10% increase per level
+        return statIncrease;
+    }
+
+    // Overloaded method for float stats like hitSpeed
+    float CalculateStatIncrease(float baseStat, float iv)
+    {
+        float statIncrease = (baseStat + iv) * 0.1f; // Example: 10% increase per level
+        return statIncrease;
+    }
+
 
 
     public void CopyCard(Card other)
@@ -117,6 +151,7 @@ public class Card : ScriptableObject
         healthIV = other.healthIV;
         level = other.level;
         associatedButton = other.associatedButton;
+        animatorController= other.animatorController;
 }
 }
 
@@ -135,6 +170,7 @@ public class CardData
     public float hitSpeedIV; // Additional stat points for hit speed
     public int level;
     public GameObject associatedButton;
+    public RuntimeAnimatorController animatorController;
 
     public CardData(Card card)
     {
@@ -150,6 +186,7 @@ public class CardData
         hitSpeedIV = card.hitSpeedIV;
         level = card.level;
         associatedButton = card.associatedButton;
+        animatorController = card.animatorController;
     }
 
 }

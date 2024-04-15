@@ -764,6 +764,7 @@ MonoBehaviour:
   cardInfo: {fileID: 11400000, guid: acc28f4126a8c6144b7054287a9e46b7, type: 2}
   cardWriting: 
   InventoryCanvas: {fileID: 0}
+  toolTip: {fileID: 0}
 --- !u!1 &482903748
 GameObject:
   m_ObjectHideFlags: 0
@@ -2392,7 +2393,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &886242059
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2580,7 +2581,7 @@ GameObject:
   - component: {fileID: 978146765}
   - component: {fileID: 978146764}
   m_Layer: 5
-  m_Name: start battle
+  m_Name: backtomenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
