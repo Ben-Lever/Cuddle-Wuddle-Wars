@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+#if UNITY_EDITOR
+using UnityEditor.SearchService;
+#endif
+
 public class SceneLoader : MonoBehaviour
 {
     //public AudioSource soundPlayer;
@@ -13,7 +17,11 @@ public class SceneLoader : MonoBehaviour
     }
     public void BackToMenu ()
     {
+        //fixed freeze problem on second load
+        Time.timeScale = 1;
+
         SceneManager.LoadScene("MainHub");
+        //CardManager.Instance.StartCardManager();
     }
     public void QuitGame()
     {
@@ -26,6 +34,10 @@ public class SceneLoader : MonoBehaviour
         //soundPlayer.Play();
     }
 
+    public void Tutorial()
+    {
+        SceneManager.LoadScene("tutorial");
+    }
 
     public void PauseGame()
     {
@@ -36,4 +48,20 @@ public class SceneLoader : MonoBehaviour
     {
         Time.timeScale = 1;
     }
+
+    public void ReloadScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name); 
+        
+    }
+
+    /*
+    private void Update()
+    {
+        if (SceneManager.GetActiveScene().name == "battlescene")
+        {
+            Debug.Log("battlescene test");
+        }
+    }
+    */
 }

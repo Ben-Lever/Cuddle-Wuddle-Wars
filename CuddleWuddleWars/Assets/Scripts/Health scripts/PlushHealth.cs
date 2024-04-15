@@ -7,6 +7,7 @@ public class PlushHealth : MonoBehaviour
     public int maxHealth = 3;
     public int currentHealth;
 
+
     public GameObject fluffPrefab; // Reference to the fluff prefab 
 
 
