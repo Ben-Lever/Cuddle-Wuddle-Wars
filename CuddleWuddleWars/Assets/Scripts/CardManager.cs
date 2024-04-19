@@ -74,7 +74,8 @@ public class CardManager : MonoBehaviour
             foreach (var card in currentDeck)
             {
                 TotalCardList.Add(card);
-                InventoryUIManager.GetComponent<InventoryTest>().UpdateInventoryCardButtons(card);
+                //InventoryUIManager.GetComponent<InventoryTest>().UpdateInventoryCardButtons(card);////////////////////////////// a a a a a a //////////////
+                InventoryUIManager.GetComponent<InventoryReal>().CreateInvCardObj(card);
             }
         }
         if (PlayerDeck != null)
@@ -218,7 +219,8 @@ public class CardManager : MonoBehaviour
             newCardInstance.InitialiseCard();
         }
         TotalCardList.Add(newCardInstance);
-        InventoryUIManager.GetComponent<InventoryTest>().UpdateInventoryCardButtons(newCardInstance);
+        //InventoryUIManager.GetComponent<InventoryTest>().UpdateInventoryCardButtons(newCardInstance);/////////////a a a a a////////////////////
+        InventoryUIManager.GetComponent<InventoryReal>().CreateInvCardObj(newCardInstance);
         //UpdateDeckVisuals();
         DeckManager();
     }
@@ -237,7 +239,8 @@ public class CardManager : MonoBehaviour
                     newCardInstance.InitialiseCard();
                 }
                 TotalCardList.Add(newCardInstance);
-                InventoryUIManager.GetComponent<InventoryTest>().UpdateInventoryCardButtons(newCardInstance);
+                //InventoryUIManager.GetComponent<InventoryTest>().UpdateInventoryCardButtons(newCardInstance);//////// aa a   a a/////////////////
+                InventoryUIManager.GetComponent<InventoryReal>().CreateInvCardObj(newCardInstance);
                 DeckManager();
                 Debug.Log(newCardInstance.cardName + "was instantiated");
             }
@@ -428,7 +431,8 @@ public class CardManager : MonoBehaviour
     public void AddCardsToTotalList(Card card)
     {
         TotalCardList.Add(card);
-        InventoryUIManager.GetComponent<InventoryTest>().UpdateInventoryCardButtons(card);
+        //InventoryUIManager.GetComponent<InventoryTest>().UpdateInventoryCardButtons(card);/////////// a a a a /////////////////
+        InventoryUIManager.GetComponent<InventoryReal>().CreateInvCardObj(card);
         DeckManager();
         Debug.Log(card.cardName + "was instantiated");
     }
