@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class WinCondition : MonoBehaviour
 {
-    public GameObject winCanvas;
+   /* public GameObject winCanvas;
     private WinManager winManager;
     public WinDisplay winDisplay;
 
@@ -22,4 +22,5 @@ public class WinCondition : MonoBehaviour
             winDisplay.UpdateWinText(); // Update the win display text
         }
     }
+   */
 }
