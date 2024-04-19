@@ -21,6 +21,8 @@ public class CardManager : MonoBehaviour
     public static int selectedCard;
 
     public static List<Card> TrueCurrentDeck;
+
+    public List<GameObject> StoreCards;
     
 
     private void Awake()
