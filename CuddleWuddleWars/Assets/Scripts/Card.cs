@@ -30,6 +30,7 @@ public class Card : ScriptableObject
     public int healthIV; // Additional stat points for health
     public float hitSpeedIV; // Additional stat points for hit speed
     public int level;
+    public int cardCost;
 
     public bool isInitialised = false;
 
@@ -152,6 +153,7 @@ public class Card : ScriptableObject
         level = other.level;
         associatedButton = other.associatedButton;
         animatorController= other.animatorController;
+        cardCost = other.cardCost;
 }
 }
 
@@ -171,6 +173,7 @@ public class CardData
     public int level;
     public GameObject associatedButton;
     public RuntimeAnimatorController animatorController;
+    public int cardCost;
 
     public CardData(Card card)
     {
@@ -187,6 +190,7 @@ public class CardData
         level = card.level;
         associatedButton = card.associatedButton;
         animatorController = card.animatorController;
+        cardCost = card.cardCost;
     }
 
 }
