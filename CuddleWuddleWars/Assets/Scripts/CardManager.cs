@@ -425,7 +425,13 @@ public class CardManager : MonoBehaviour
     }
     
 
-
+    public void AddCardsToTotalList(Card card)
+    {
+        TotalCardList.Add(card);
+        InventoryUIManager.GetComponent<InventoryTest>().UpdateInventoryCardButtons(card);
+        DeckManager();
+        Debug.Log(card.cardName + "was instantiated");
+    }
 
 
 
