@@ -914,6 +914,7 @@ MonoBehaviour:
   CostObject: {fileID: 1827635721}
   ImageObject: {fileID: 1999857380}
   toolTip: {fileID: 1414613062}
+  CoinManagerObj: {fileID: 0}
 --- !u!1 &69119406
 GameObject:
   m_ObjectHideFlags: 0
@@ -1860,6 +1861,7 @@ MonoBehaviour:
   CostObject: {fileID: 1194986780}
   ImageObject: {fileID: 1959191978}
   toolTip: {fileID: 1414613062}
+  CoinManagerObj: {fileID: 0}
 --- !u!1 &245713173
 GameObject:
   m_ObjectHideFlags: 0
@@ -3843,6 +3845,7 @@ MonoBehaviour:
   CostObject: {fileID: 1289015680}
   ImageObject: {fileID: 2003601882}
   toolTip: {fileID: 1414613062}
+  CoinManagerObj: {fileID: 0}
 --- !u!1 &484267547 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1867910314606445438, guid: b1681f407cde4c0438602890e4c6b805, type: 3}
@@ -9038,6 +9041,7 @@ MonoBehaviour:
   CostObject: {fileID: 166183340}
   ImageObject: {fileID: 1556673055}
   toolTip: {fileID: 1414613062}
+  CoinManagerObj: {fileID: 0}
 --- !u!1 &1036158423
 GameObject:
   m_ObjectHideFlags: 0
@@ -10450,6 +10454,7 @@ MonoBehaviour:
   CostObject: {fileID: 972674725}
   ImageObject: {fileID: 447184143}
   toolTip: {fileID: 1414613062}
+  CoinManagerObj: {fileID: 0}
 --- !u!1001 &1176854663
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11624,6 +11629,7 @@ MonoBehaviour:
   CostObject: {fileID: 77645830}
   ImageObject: {fileID: 127801237}
   toolTip: {fileID: 1414613062}
+  CoinManagerObj: {fileID: 0}
 --- !u!1 &1303281279
 GameObject:
   m_ObjectHideFlags: 0
@@ -11795,6 +11801,7 @@ MonoBehaviour:
   CostObject: {fileID: 550854452}
   ImageObject: {fileID: 258747509}
   toolTip: {fileID: 1414613062}
+  CoinManagerObj: {fileID: 0}
 --- !u!1 &1353699662 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3059143459536919749, guid: b1681f407cde4c0438602890e4c6b805, type: 3}
@@ -11818,6 +11825,7 @@ MonoBehaviour:
   CostObject: {fileID: 1257293853}
   ImageObject: {fileID: 840295991}
   toolTip: {fileID: 1414613062}
+  CoinManagerObj: {fileID: 0}
 --- !u!1 &1367051817
 GameObject:
   m_ObjectHideFlags: 0
@@ -13677,6 +13685,7 @@ MonoBehaviour:
   CostObject: {fileID: 893181443}
   ImageObject: {fileID: 484267547}
   toolTip: {fileID: 1414613062}
+  CoinManagerObj: {fileID: 0}
 --- !u!1 &1518688099
 GameObject:
   m_ObjectHideFlags: 0

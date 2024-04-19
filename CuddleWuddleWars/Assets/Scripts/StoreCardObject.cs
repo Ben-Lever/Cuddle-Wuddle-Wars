@@ -16,6 +16,7 @@ public class StoreCardObject : MonoBehaviour, IPointerEnterHandler, IPointerExit
     public GameObject CostObject;
     public GameObject ImageObject;
     public ToolTip toolTip;
+    public GameObject CoinManagerObj;
     // Start is called before the first frame update
     void Start()
     {
@@ -39,7 +40,22 @@ public class StoreCardObject : MonoBehaviour, IPointerEnterHandler, IPointerExit
 
     public void PurchaseButtonPress()
     {
-        CardManager.Instance.AddCardsToTotalList(cardInfo);
+        //CardManager.Instance.AddCardsToTotalList(cardInfo);
+        
+        int coinTotal = PlayerPrefs.GetInt("Coins", 0);
+        if (coinTotal >= 50)
+        {
+            CardManager.Instance.AddCardsToTotalList(cardInfo);
+            Debug.Log("Spent 50 coins on" + cardInfo.cardName);
+            coinTotal -= 50;
+            PlayerPrefs.SetInt("Coins", coinTotal);
+            //PlayerPrefs.Save();
+        }
+        else
+        {
+            Debug.Log("Not enough money");
+        }
+        
     }
 
     public void OnPointerEnter(PointerEventData eventData)
