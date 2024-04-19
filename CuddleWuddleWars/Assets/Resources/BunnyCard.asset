@@ -23,6 +23,7 @@ MonoBehaviour:
   healthIV: 0
   hitSpeedIV: 0
   level: 0
+  cardCost: 3
   isInitialised: 0
   associatedButton: {fileID: 0}
   animatorController: {fileID: 9100000, guid: 0dc85a5265a44bf47bf07c92dd0dfcdf, type: 2}

@@ -7,6 +7,7 @@ public class BattleCardObjectScript : MonoBehaviour
 {
     public GameObject SpriteRendChild;
     public GameObject TextChild;
+    public GameObject CostChild;
     public Card cardInfo;
     public string cardWriting;
 
@@ -15,7 +16,7 @@ public class BattleCardObjectScript : MonoBehaviour
     public int Index { get; private set; }
 
     public GameObject plushPrefab; //place plush card here
-    public int plushCost = 1;
+    public int plushCost;
 
     public Transform[] spawnPoints; // Array of spawn points
 
@@ -29,6 +30,7 @@ public class BattleCardObjectScript : MonoBehaviour
     {
         spriteRenderer = SpriteRendChild.GetComponent<SpriteRenderer>(); // Ensure SpriteRendChild is the correct GameObject
         originalColor = spriteRenderer.color;
+        plushCost = cardInfo.cardCost;
         if (cardInfo.isInitialised == false)
         {
             Debug.Log("Starting Card Initialisation");
@@ -38,6 +40,8 @@ public class BattleCardObjectScript : MonoBehaviour
             SpriteRendChild.GetComponent<SpriteRenderer>().sprite = cardInfo.artwork;
             cardWriting = "LVL: " + cardInfo.level;
             TextChild.GetComponent<TextMeshPro>().text = cardWriting;
+            CostChild.GetComponent<TextMeshPro>().text = cardInfo.cardCost.ToString();
+            Debug.Log(cardInfo.cardName + "costs " + cardInfo.cardCost);
         }
     }
 
@@ -63,6 +67,9 @@ public class BattleCardObjectScript : MonoBehaviour
         cardWriting = "LVL: " + cardInfo.level;
         TextChild.GetComponent<TextMeshPro>().text = cardWriting;
         SpriteRendChild.GetComponent<SpriteRenderer>().sprite = cardInfo.artwork;
+        Debug.Log(cardInfo.cardName + " costs " + cardInfo.cardCost);
+        CostChild.GetComponent<TextMeshProUGUI>().text = cardInfo.cardCost.ToString();//////////////////////////////////////////////
+        plushCost = cardInfo.cardCost;
         //CardManager.instance.TrueCurrentDeck();
     }
 

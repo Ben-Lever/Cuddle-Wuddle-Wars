@@ -308,6 +308,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SpriteRendChild: {fileID: 2008653965}
   TextChild: {fileID: 1136709450}
+  CostChild: {fileID: 1999108186}
   cardInfo: {fileID: 11400000, guid: acc28f4126a8c6144b7054287a9e46b7, type: 2}
   cardWriting: 
   blankPrefab: {fileID: 2925377228705464591, guid: 43c6afc3b278df7499ac48bf8d59a50b, type: 3}
@@ -615,6 +616,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SpriteRendChild: {fileID: 671999211}
   TextChild: {fileID: 983489454}
+  CostChild: {fileID: 1193409617}
   cardInfo: {fileID: 11400000, guid: acc28f4126a8c6144b7054287a9e46b7, type: 2}
   cardWriting: 
   blankPrefab: {fileID: 2925377228705464591, guid: 43c6afc3b278df7499ac48bf8d59a50b, type: 3}
@@ -1376,6 +1378,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SpriteRendChild: {fileID: 1218421283}
   TextChild: {fileID: 212180761}
+  CostChild: {fileID: 554939240}
   cardInfo: {fileID: 11400000, guid: acc28f4126a8c6144b7054287a9e46b7, type: 2}
   cardWriting: 
   blankPrefab: {fileID: 2925377228705464591, guid: 43c6afc3b278df7499ac48bf8d59a50b, type: 3}
@@ -6548,6 +6551,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SpriteRendChild: {fileID: 201788046}
   TextChild: {fileID: 1232086235}
+  CostChild: {fileID: 245216095}
   cardInfo: {fileID: 11400000, guid: acc28f4126a8c6144b7054287a9e46b7, type: 2}
   cardWriting: 
   blankPrefab: {fileID: 2925377228705464591, guid: 43c6afc3b278df7499ac48bf8d59a50b, type: 3}
