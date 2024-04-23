@@ -14,6 +14,7 @@ TagManager:
   - CardManager
   - PlayerDeck
   - InventoryUIManager
+  - ToolTip
   layers:
   - Default
   - TransparentFX
