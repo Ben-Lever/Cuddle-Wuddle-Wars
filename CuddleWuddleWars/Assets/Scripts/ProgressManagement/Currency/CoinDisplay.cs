@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class CoinDisplay : MonoBehaviour
 {
@@ -15,5 +16,14 @@ public class CoinDisplay : MonoBehaviour
 
         // Display the coin count in a UI Text element
         coinText.text = currentCoins.ToString();
+    }
+
+    public void WatchAd()
+    {
+        Debug.Log("Watch the ad please");
+        int currentCoins = PlayerPrefs.GetInt("Coins", 0);
+        currentCoins += 50;
+        PlayerPrefs.SetInt("Coins", currentCoins);
+        SceneManager.LoadScene("tutorial");
     }
 }

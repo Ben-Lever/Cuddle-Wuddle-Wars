@@ -24,7 +24,8 @@ public class ToolTip : MonoBehaviour
             Debug.Log("Tooltip Triggered");
             statText += "Health: " + card.TotalHealth + "\n"
                 + "Attack: " + card.TotalAttack + "\n"
-                + "Hit Speed: " + card.TotalHitSpeed + "\n";
+                + "Hit Speed: " + card.TotalHitSpeed + "\n"
+                + "Cost: " + card.cardCost;
 
             string toolTipString = string.Format("<b>{0}</b>\n{1}\n\n<b>{2}</b>", card.cardName, card.unitType, statText);
             tooltipText.text = toolTipString;

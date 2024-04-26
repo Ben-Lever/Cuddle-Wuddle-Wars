@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba7ca9cfb859adc45977bc4ec299c0d5, type: 3}
   m_Name: TeddyBearCard
   m_EditorClassIdentifier: 
-  cardName: Teddy Bear
+  cardName: Teddy
   uniqueID: 
   artwork: {fileID: -1729750150, guid: b13f1f48adeff6a45a5400440a2e1cb8, type: 3}
   unitType: 0
