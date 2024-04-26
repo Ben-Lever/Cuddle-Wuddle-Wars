@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba7ca9cfb859adc45977bc4ec299c0d5, type: 3}
   m_Name: TurtleCard
   m_EditorClassIdentifier: 
-  cardName: Turtle
+  cardName: Turt
   uniqueID: 
   artwork: {fileID: -926106738, guid: d696e5fd1721e474c8772b0e1e79cf02, type: 3}
   unitType: 0
