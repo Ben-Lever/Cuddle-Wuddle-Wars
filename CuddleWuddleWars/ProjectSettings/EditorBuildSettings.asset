@@ -20,6 +20,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/battlescene.unity
     guid: e1ac3b7e318897f4888bd641c3a09711
+  - enabled: 1
+    path: Assets/Scenes/AD.unity
+    guid: 17129813b2cc21147b6d721f82fc8598
   m_configObjects:
     com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: e2c758672387349489ce9c0a02947f79, type: 2}
     com.unity.adaptiveperformance.samsung.android.provider_settings: {fileID: 11400000, guid: 73d8bb6b1aaa9e041a20504d0ab77e91, type: 2}

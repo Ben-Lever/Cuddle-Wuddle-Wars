@@ -18,6 +18,8 @@ public class StoreHealth : MonoBehaviour
     public GameObject life2;
     public GameObject life3;
 
+    public int timesHit;
+
     void Start()
     {
         currentHealth = maxHealth;
@@ -25,23 +27,44 @@ public class StoreHealth : MonoBehaviour
         life2.SetActive(true);
         life3.SetActive(true);
 
+        timesHit = 0;
+
         audioSource = GetComponent<AudioSource>();
     }
 
+    public void Update()
+    {
+        if (currentHealth <= 2)
+        {
+            life3.SetActive(false);
+        }
+        if (currentHealth <= 1)
+        {
+            life3.SetActive(false);
+            life2.SetActive(false);
+        }
+        if (currentHealth <= 0)
+        {
+            life3.SetActive(false);
+            life2.SetActive(false);
+            life1.SetActive(false);
+        }
+    }
     public void TakeDamage(int amount)
     {
-        currentHealth -= amount;
+        currentHealth--;
+        //currentHealth -= amount;
 
         if (currentHealth <= 2)
         {
             life3.SetActive(false);
         }
-        else if (currentHealth <= 1)
+        if (currentHealth <= 1)
         {
             life3.SetActive(false);
             life2.SetActive(false);
         }
-        else if (currentHealth <= 0)
+        if (currentHealth <= 0)
         {
             life3.SetActive(false);
             life2.SetActive(false);

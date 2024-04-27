@@ -24,6 +24,6 @@ public class CoinDisplay : MonoBehaviour
         int currentCoins = PlayerPrefs.GetInt("Coins", 0);
         currentCoins += 50;
         PlayerPrefs.SetInt("Coins", currentCoins);
-        SceneManager.LoadScene("tutorial");
+        SceneManager.LoadScene("AD");
     }
 }

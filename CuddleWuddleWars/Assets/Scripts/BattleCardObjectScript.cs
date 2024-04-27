@@ -85,7 +85,7 @@ public class BattleCardObjectScript : MonoBehaviour
         //FluffCollector script attached to a GameObject in the scene
         FluffCollector fluffCollector = FindObjectOfType<FluffCollector>();
 
-        if (fluffCollector != null && fluffCollector.fluffCount >= plushCost)
+        if (fluffCollector != null && fluffCollector.fluffCount >= plushCost && !isCooldownActive)
         {
 
             fluffCollector.fluffCount -= plushCost; // Deduct the cost from the player's fluff

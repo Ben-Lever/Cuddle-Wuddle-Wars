@@ -4721,7 +4721,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1176963009}
         m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
-        m_MethodName: Tutorial
+        m_MethodName: AdScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4976,7 +4976,7 @@ MonoBehaviour:
   - {fileID: 5324972373124012819, guid: 2f9dce006df4a044b94cb2a442d85804, type: 3}
   - {fileID: 5324972373124012819, guid: 2f9dce006df4a044b94cb2a442d85804, type: 3}
   - {fileID: 5324972373124012819, guid: 2f9dce006df4a044b94cb2a442d85804, type: 3}
-  fluffInterval: 3.12
+  fluffInterval: 2.2
   spawnPoints:
   - {fileID: 1625513751}
 --- !u!4 &985547365
@@ -6969,7 +6969,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1176963009}
         m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
-        m_MethodName: Tutorial
+        m_MethodName: AdScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -55,6 +55,11 @@ public class SceneLoader : MonoBehaviour
         
     }
 
+    public void AdScene()
+    {
+        SceneManager.LoadScene("AD");
+    }
+
 
 
     /*
