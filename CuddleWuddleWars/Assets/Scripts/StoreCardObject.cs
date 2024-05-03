@@ -1,4 +1,6 @@
+#if UNITY_EDITOR
 using Microsoft.Unity.VisualStudio.Editor;
+#endif
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
